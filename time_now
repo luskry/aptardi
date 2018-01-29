@@ -1,0 +1,4 @@
+def time_now():
+    
+    curr_time = datetime.datetime.now()
+    return curr_time.strftime('%c')
