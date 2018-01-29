@@ -1,5 +1,3 @@
-# APARDIUML
-Alternative PolyAdenylation from RNA sequencing and DNA sequence Information Using Machine Learning
 #!/bin/bash python3
 
 import sys
