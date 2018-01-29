@@ -1,0 +1,7 @@
+def sequence_from_fasta(local_fasta_file, tmp_dir):
+    
+    if local_fasta_file.endswith('.gz'):
+        os.system('gunzip -f %s' % (local_fasta_file))
+        local_fasta_file = local_fasta_file[:-3]
+    
+    os.system('bedtools getfasta -fi %s -bed %smodified_annot.bed -name -bedOut -s -split > %smodified_bed_with_sequence.bed' % (local_fasta_file, tmp_dir, tmp_dir))
