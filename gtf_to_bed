@@ -1,7 +1,7 @@
 def gtf_to_bed(gtf_file, tmp_dir):
     
     
-    def bed_line(estart, eend, field, nline, exon_coverage, trans_coverage):
+    def bed_line(estart, eend, field, nline):
         
         allids = {}
         estp = estart[0] - 1
@@ -30,7 +30,7 @@ def gtf_to_bed(gtf_file, tmp_dir):
             allids[transid] = 1
         if not field[0].startswith('chr'):
             field[0] = 'chr' + field[0]
-        line = [field[0], str(estp), str(eedp), '|'.join([transid, geneid, field[0], str(estp), str(eedp), field[6]]), ','.join(exon_coverage), field[6], str(estp), str(eedp), str(trans_coverage), str(len(estart))]
+        line = [field[0], str(estp), str(eedp), '|'.join([transid, geneid, field[0], str(estp), str(eedp), field[6]]), '0', field[6], str(estp), str(eedp), '255,0,0', str(len(estart))]
         seglen = [eend[i] - estart[i] + 1 for i in range(len(estart))]
         segstart = [estart[i] - estart[0] for i in range(len(estart))]
         strl = str(seglen[0])
@@ -48,8 +48,6 @@ def gtf_to_bed(gtf_file, tmp_dir):
     
     estart = []
     eend = []
-    exon_coverage = []
-    trans_coverage = []
     nline = 0
     prevfield = []
     prevtransid = ''
@@ -73,30 +71,18 @@ def gtf_to_bed(gtf_file, tmp_dir):
                     transid = ''
                 if field[2] == 'transcript' or (prevtransid != '' and transid != '' and transid != prevtransid):
                     if len(estart) != 0:
-                        extracted_bed_line.writelines('\t'.join(bed_line(estart, eend, prevfield, nline, exon_coverage, trans_coverage)) + '\n')
+                        extracted_bed_line.writelines('\t'.join(bed_line(estart, eend, prevfield, nline)) + '\n')
                     estart = []
                     eend = []
-                    exon_coverage = []
-                    trans_coverage = []
                 prevfield = field
                 prevtransid = transid
                 if field[2] == 'exon':
                     est = int(field[3])
                     eed = int(field[4])
-                    exon_cov = re.findall(r'cov \"([\d\.]+)\"', field[8])
-                    if len(exon_cov) == 0:
-                        exon_cov = ['NA']
                     estart += [est]
                     eend += [eed]
-                    exon_coverage.extend(exon_cov)
-                if field[2] == 'transcript':
-                    trans_cov = re.findall(r'cov \"([\d\.]+)\"', field[8])
-                if len(trans_cov) == 0:
-                    trans_coverage = '255,0,0'
-                else:
-                    trans_coverage = trans_cov[0]
         if len(estart) != 0:
-            extracted_bed_line.writelines('\t'.join(bed_line(estart, eend, prevfield, nline, exon_coverage, trans_coverage)) + '\n')
+            extracted_bed_line.writelines('\t'.join(bed_line(estart, eend, prevfield, nline)) + '\n')
                 
     extracted_bed_line.close()
         
