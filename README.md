@@ -1,2 +1,2 @@
 # APARDIUML
-Alternative PolyAdenylation from RNA sequencing and DNA sequence Information using Machine Learning
+Alternative PolyAdenylation from RNA sequencing and DNA sequence Information Using Machine Learning
