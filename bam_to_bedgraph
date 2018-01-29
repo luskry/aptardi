@@ -1,0 +1,12 @@
+def bam_to_bedgraph(user_bam_path, tmp_dir, strdat):
+    
+    if strdat == 'no':
+        os.system('bedtools genomecov -bg -ibam %s > %s' % (user_bam_path, tmp_dir+'coverage.bedgraph'))
+        
+    elif strdat == 'yes':
+        os.system('bedtools genomecov -bg -strand + -ibam %s > %s' % (user_bam_path, tmp_dir+'coverage_plus_strand.bedgraph'))
+        os.system('bedtools genomecov -bg -strand - -ibam %s > %s' % (user_bam_path, tmp_dir+'coverage_minus_strand.bedgraph'))
+        os.system('bedtools unionbedg -i %s %s > %s' % (tmp_dir+'coverage_plus_strand.bedgraph', tmp_dir+'coverage_minus_strand.bedgraph', tmp_dir+'coverage.bedgraph'))
+        os.remove(tmp_dir+'coverage_plus_strand.bedgraph')
+        os.remove(tmp_dir+'coverage_minus_strand.bedgraph')
+    
