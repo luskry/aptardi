@@ -1,4 +1,4 @@
-##Alternative Polyadenylation Trascriptome Analysis from RNA sequencing and DNA sequencing Information
+#Alternative Polyadenylation Trascriptome Analysis from RNA sequencing and DNA sequencing Information
 
 #Aptardi_main is the code for analysis of test data that is ran from the command line and operates in the Python 3 environment
 
