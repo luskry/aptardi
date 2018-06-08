@@ -1,6 +1,7 @@
 def annot_from_bed(bed_list_raw, chrom_sizes_dict, tmp_dir):
     
     utr_size = 2000
+    
     output_write = open(tmp_dir+'modified_annot.bed', 'w')
     
     for fields in bed_list_raw:
