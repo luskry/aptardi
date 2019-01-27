@@ -14,12 +14,10 @@ def extract_start_utr(bed_list_raw, tmp_dir):
                 tx_end = str(int(tx_start) + int(exon_sizes[0]))
                 exon_sizes = str(exon_sizes[0])
                 rel_exon_starts = (',').join([str(int(i)-int(tx_start)) for i in abs_exon_starts])[0]
-            
             elif strand == '-':
                 tx_start = str(int(tx_end) - int(exon_sizes[-1]))
                 exon_sizes = str(exon_sizes[-1])
                 rel_exon_starts = (',').join([str(int(i)-int(tx_start)) for i in abs_exon_starts])[-1]
-                
             else:
                 continue
                 
