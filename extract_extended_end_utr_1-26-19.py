@@ -42,10 +42,6 @@ def extract_extended_end_utr(bed_list_raw, chrom_sizes_dict, tmp_dir):
                 tx_end = str(int(tx_start) + int(exon_sizes.strip(',').split(',')[0]))
                 exon_sizes = exon_sizes.strip(',').split(',')[0]
                 rel_exon_starts = (',').join([str(int(i)-int(tx_start)) for i in abs_exon_starts])[0]
-            elif strand != '.':
-                pass
-            else:
-                continue
                 
             write_line = [fields[0], tx_start, tx_end, fields[3], '0', strand, fields[6], fields[7], '255, 0, 0', '1', exon_sizes, rel_exon_starts]
             output_write.writelines('\t'.join(write_line) + '\n')
