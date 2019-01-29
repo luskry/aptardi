@@ -30,10 +30,16 @@ def refine_utr_extension(tmp_dir, intersected_extension_start_utr_file, extended
                     
     for event in extended_utr_subtract_overlap:
         if event in overlap_extension:
-            if overlap_extension[event][1] == '-' and int(max(overlap_extension[event][2])) < int(extended_utr_subtract_overlap[event][2]):
-                extended_utr_subtract_overlap[event][1] = max(overlap_extension[event][2])
-            elif overlap_extension[event][1] == '+' and int(min(overlap_extension[event][2])) > int(extended_utr_subtract_overlap[event][1]):
-                extended_utr_subtract_overlap[event][2] = min(overlap_extension[event][2])
+            if overlap_extension[event][1] == '-':
+                if int(max(overlap_extension[event][2])) < int(extended_utr_subtract_overlap[event][2]):
+                    extended_utr_subtract_overlap[event][1] = max(overlap_extension[event][2])
+                else:
+                    extended_utr_subtract_overlap[event][1] = extended_utr_subtract_overlap[event][6]
+            elif overlap_extension[event][1] == '+':
+                if int(min(overlap_extension[event][2])) > int(extended_utr_subtract_overlap[event][1]):
+                    extended_utr_subtract_overlap[event][2] = min(overlap_extension[event][2])
+                else:
+                     extended_utr_subtract_overlap[event][2] = extended_utr_subtract_overlap[event][7]
             extended_utr_subtract_overlap[event][10] = str(int(extended_utr_subtract_overlap[event][2]) - int(extended_utr_subtract_overlap[event][1])) 
             
         output_write.writelines('\t'.join(extended_utr_subtract_overlap[event]) + '\n')
