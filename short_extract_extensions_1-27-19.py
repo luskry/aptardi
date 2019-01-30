@@ -1,6 +1,8 @@
 def extract_extension(bed_list_raw, chrom_sizes_dict, tmp_dir):
     
-    utr_size = 10100
+    utr_extension = 10000
+    window_size = 100
+    utr_size = utr_extension + window_size
     output_write = open(tmp_dir+'extensions.bed', 'w')
     
     for fields in bed_list_raw:
