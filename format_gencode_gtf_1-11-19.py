@@ -1,4 +1,4 @@
-def format_gencode_gtf(gencode_gtf_file, tmp_dir):
+def format_gencode_gtf(gencode_gtf_file, tmp_dir, output_gencode_file):
 
     with open(tmp_dir+gencode_gtf_file, 'r') as f:
         
@@ -27,6 +27,6 @@ def format_gencode_gtf(gencode_gtf_file, tmp_dir):
                         line.append(original_field)
                     prevtransid = transid
                           
-    with open(tmp_dir+'formatted.gtf', 'w') as f:
+    with open(tmp_dir+output_gencode_file, 'w') as f:
         f.writelines('\t'.join(i) + '\n' for i in line)
     
