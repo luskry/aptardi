@@ -1,5 +1,6 @@
 def signal_variant_indicator(bases, signal_variants):
-
+    
+    bases = bases.upper()
     hex_seq_list = []
     for i in range(len(bases) - 5):
         hex_seq_list.append(bases[i:i + 6])
