@@ -159,6 +159,3 @@ def extract_features_and_labels(seq_window_merged_refined_utrs_file, tmp_dir, be
                     features_labels_dict[curr_3UTR_event_id].append(0)     
     
     return features_labels_dict
-
-
-features_labels_dict = extract_features_and_labels('seq_window_merged_refined_utrs.bed', temp_dir, bedgraph_files, label_plus_loc, label_minus_loc)
