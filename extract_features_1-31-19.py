@@ -26,6 +26,14 @@ def extract_features(seq_window_merged_refined_utrs_file, tmp_dir, bedgraph_file
                     curr_bases = bases[rel_start + window_size - signal_window_size:rel_end - window_size - min_upstream_signal_size]
                     UTR_events_dict['%s|%s-%s' % (name, i + window_size, i + window_size * 2)] = [fields[0], region_start, region_end, fields[5], utr_pos, curr_bases]      
     
+    for curr_3UTR_event_id in UTR_events_dict:
+        features_dict[curr_3UTR_event_id] = []
+        curr_3UTR_structure = UTR_events_dict[curr_3UTR_event_id]
+        curr_chr = curr_3UTR_structure[0]
+        bases = UTR_events_dict[curr_3UTR_event_id][-1]
+        features_dict[curr_3UTR_event_id].append(signal_variant_indicator(bases, ['AATAAA', 'ATTAAA']))
+        features_dict[curr_3UTR_event_id].append(signal_variant_indicator(bases, ['AAGAAA', 'AAAAAG', 'AATACA', 'TATAAA', 'ACTAAA', 'AGTAAA', 'GATAAA', 'AATATA', 'CATAAA', 'AATAGA']))                  
+    
     for curr_bedgraph in bedgraph_files:
         cur_sample_total_depth = 0
         num_line = 0
@@ -64,13 +72,10 @@ def extract_features(seq_window_merged_refined_utrs_file, tmp_dir, bedgraph_file
         curr_sample_All_chroms_coverage_dict_minus[chrom_name][1].append(0)    
     
         for curr_3UTR_event_id in UTR_events_dict:
-            bases = UTR_events_dict[curr_3UTR_event_id][-1]
-            features_dict[curr_3UTR_event_id] = []
-            features_dict[curr_3UTR_event_id].append(signal_variant_indicator(bases, ['AATAAA', 'ATTAAA']))
-            features_dict[curr_3UTR_event_id].append(signal_variant_indicator(bases, ['AAGAAA', 'AAAAAG', 'AATACA', 'TATAAA', 'ACTAAA', 'AGTAAA', 'GATAAA', 'AATATA', 'CATAAA', 'AATAGA']))
             curr_3UTR_structure = UTR_events_dict[curr_3UTR_event_id]
             curr_chr = curr_3UTR_structure[0]
-            exp_list = []
+            curr_3UTR_all_samples_bp_coverage = []
+            exp_list = [] 
             
             if UTR_events_dict[curr_3UTR_event_id][-3] == '+':
                 if curr_chr in curr_sample_All_chroms_coverage_dict:
@@ -104,7 +109,6 @@ def extract_features(seq_window_merged_refined_utrs_file, tmp_dir, bedgraph_file
                         All_samples_extracted_3UTR_coverage_dict_minus[curr_3UTR_event_id] = []
                     All_samples_extracted_3UTR_coverage_dict_minus[curr_3UTR_event_id].append([extracted_coverage,extracted_3UTR_region])
     
-            curr_3UTR_all_samples_bp_coverage = []
             if UTR_events_dict[curr_3UTR_event_id][-3] == '-' and curr_3UTR_event_id in All_samples_extracted_3UTR_coverage_dict_minus:
                 curr_3UTR_coverage_wig = All_samples_extracted_3UTR_coverage_dict_minus[curr_3UTR_event_id]
                 for curr_sample_curr_3UTR_coverage_wig in curr_3UTR_coverage_wig: 
@@ -136,8 +140,7 @@ def extract_features(seq_window_merged_refined_utrs_file, tmp_dir, bedgraph_file
                 two_one_diff = abs(reg_two-reg_one)
                 three_two_diff = abs(reg_two-reg_three)
                 overall_diff = two_one_diff+three_two_diff
-                exp_list.append(overall_diff)
-           
+                exp_list.append(overall_diff)          
             features_dict[curr_3UTR_event_id].append(sum(exp_list))       
     
     return features_dict
