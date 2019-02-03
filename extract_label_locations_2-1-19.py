@@ -26,4 +26,11 @@ def extract_label_locations(gencode_manually_annotated_file, tmp_dir):
                         else:
                             label_dict[chrom_name].extend([polya_site])
     
+    for key in label_dict:
+        label_dict[key] = list(set(label_dict[key]))
+        label_dict[key].sort()
+    for key in label_dict_minus:
+        label_dict_minus[key] = list(set(label_dict_minus[key]))
+        label_dict_minus[key].sort()
+    
     return label_dict, label_dict_minus
