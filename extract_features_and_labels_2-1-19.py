@@ -37,7 +37,7 @@ def extract_features_and_labels(seq_window_merged_refined_utrs_file, tmp_dir, be
         if UTR_events_dict[curr_3UTR_event_id][-3] == '+':              
             if curr_chr in gencode_label_dict:
                 probe_start, probe_end = int(UTR_events_dict[curr_3UTR_event_id][-2].split('-')[0]), int(UTR_events_dict[curr_3UTR_event_id][-2].split('-')[1])
-                if any([i for i in gencode_label_dict[curr_chr] if i >= probe_start and i <= probe_end]):
+                if any([i for i in gencode_label_dict[curr_chr] if i >= probe_start and i < probe_end]):
                     features_labels_dict[curr_3UTR_event_id].append(1)
                 else:
                     features_labels_dict[curr_3UTR_event_id].append(0)
@@ -46,7 +46,7 @@ def extract_features_and_labels(seq_window_merged_refined_utrs_file, tmp_dir, be
         elif UTR_events_dict[curr_3UTR_event_id][-3] == '-':              
             if curr_chr in gencode_label_dict_minus:
                 probe_start, probe_end = int(UTR_events_dict[curr_3UTR_event_id][-2].split('-')[0]), int(UTR_events_dict[curr_3UTR_event_id][-2].split('-')[1])
-                if any([i for i in gencode_label_dict_minus[curr_chr] if i >= probe_start and i <= probe_end]):
+                if any([i for i in gencode_label_dict_minus[curr_chr] if i >= probe_start and i < probe_end]):
                     features_labels_dict[curr_3UTR_event_id].append(1)
                 else:
                     features_labels_dict[curr_3UTR_event_id].append(0)
