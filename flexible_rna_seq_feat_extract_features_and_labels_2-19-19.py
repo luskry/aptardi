@@ -170,20 +170,20 @@ def extract_features_and_labels(seq_window_merged_refined_utrs_file, tmp_dir, be
                 reg_two_med = (np.median(cov_array[window_size:2*window_size])*1000000)/(np.array(All_Samples_Total_depth)[i]/1000000)
                 reg_three_med = (np.median(cov_array[2*window_size:3*window_size])*1000000)/(np.array(All_Samples_Total_depth)[i]/1000000)
                 
-                un_norm_two_one_diff_med =  abs(reg_two_med-reg_one_med)
-                un_norm_two_one_diff_mean =  abs(reg_two_mean-reg_one_mean)
+                un_norm_two_one_diff_med = abs(reg_two_med-reg_one_med)
+                un_norm_two_one_diff_mean = abs(reg_two_mean-reg_one_mean)
                 un_norm_three_two_diff_med = abs(reg_two_med-reg_three_med)
                 un_norm_three_two_diff_mean = abs(reg_two_mean-reg_three_mean)
                 
                 if reg_one_sum+reg_two_sum != 0:
-                    two_one_diff_med =  abs(reg_two_med-reg_one_med)/(reg_one_sum+reg_two_sum)
-                    two_one_diff_mean =  abs(reg_two_mean-reg_one_mean)/(reg_one_sum+reg_two_sum)   
+                    two_one_diff_med = abs(reg_two_med-reg_one_med)/(reg_one_sum+reg_two_sum)
+                    two_one_diff_mean = abs(reg_two_mean-reg_one_mean)/(reg_one_sum+reg_two_sum)   
                 else:
                     two_one_diff_med = 0
                     two_one_diff_mean = 0
                 if reg_two_sum+reg_three_sum != 0:
-                    three_two_diff_med =  abs(reg_two_med-reg_three_med)/(reg_three_sum+reg_two_sum)
-                    three_two_diff_mean =  abs(reg_two_mean-reg_three_mean)/(reg_three_sum+reg_two_sum)
+                    three_two_diff_med = abs(reg_two_med-reg_three_med)/(reg_three_sum+reg_two_sum)
+                    three_two_diff_mean = abs(reg_two_mean-reg_three_mean)/(reg_three_sum+reg_two_sum)
                     
                 else:
                     three_two_diff_med = 0
@@ -192,7 +192,7 @@ def extract_features_and_labels(seq_window_merged_refined_utrs_file, tmp_dir, be
                 overall_diff_med = two_one_diff_med+three_two_diff_med
                 overall_diff_mean = two_one_diff_mean+three_two_diff_mean
                 un_norm_overall_diff_med = un_norm_two_one_diff_med+un_norm_three_two_diff_med
-                un_norm_overall_diff_mean =un_norm_two_one_diff_mean+un_norm_three_two_diff_mean
+                un_norm_overall_diff_mean = un_norm_two_one_diff_mean+un_norm_three_two_diff_mean
                 
                 exp_list.append(overall_diff_med)
                 
