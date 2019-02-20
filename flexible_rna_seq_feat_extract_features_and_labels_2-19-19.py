@@ -183,8 +183,7 @@ def extract_features_and_labels(seq_window_merged_refined_utrs_file, tmp_dir, be
                     two_one_diff_mean = 0
                 if reg_two_sum+reg_three_sum != 0:
                     three_two_diff_med = abs(reg_two_med-reg_three_med)/(reg_three_sum+reg_two_sum)
-                    three_two_diff_mean = abs(reg_two_mean-reg_three_mean)/(reg_three_sum+reg_two_sum)
-                    
+                    three_two_diff_mean = abs(reg_two_mean-reg_three_mean)/(reg_three_sum+reg_two_sum)    
                 else:
                     three_two_diff_med = 0
                     three_two_diff_mean = 0
