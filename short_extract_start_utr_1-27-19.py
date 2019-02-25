@@ -2,8 +2,8 @@ def extract_start_utr(bed_list_raw, tmp_dir):
     
     output_write = open(tmp_dir+'start_utr.bed', 'w')
     
-    for fields in bed_list_raw and fields[9] != 0:
-        if '_' not in fields[0]:
+    for fields in bed_list_raw:
+        if '_' not in fields[0] and fields[9] != 0:
             strand = fields[5]
             tx_start = fields[1]
             tx_end = fields[2]  
