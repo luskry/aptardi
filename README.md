@@ -1,6 +1,7 @@
 ### aptardi
 ***a**lternative **p**olyadenylation **t**rascriptome **a**nalysis from **R**NA sequencing and **D**NA sequencing **i**nformation*
 
+### Description
 High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries, i.e. the polyA site. 
 
 As a result, some have utilized the information provided by DNA sequence to more precisely identify polyA sites. However, DNA sequence information alone does not go beyond identifying the genomic sites of polyadenylation, i.e. transcript structure and quantity cannot be determined, information that is crucial for downstream systems genomics studies. 
