@@ -23,8 +23,9 @@ USAGE
 	aptardi {OPTIONS}	
 
 OPTIONS
-#Required
 
+	1. Using pre-built model
+	Required arguments
 	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
 
 	-testSS <input_RNA_secondary_structure_file>	An input file that contains the RNA secondary structures of the input sequences.
@@ -36,7 +37,7 @@ OPTIONS
 					needs ground truth data. The ground truth data is added at the end of the title of each
 					sequence. E.g. for a positive sequence example, the title is >chr15_100354095_positive_1; on
 					the other hand, the title of a negative sequence example is >chr15_100565120_positive_0. 
-
+	2. Building your own model
 EXAMPLE
 
 	python DeepPASTA_polyA_site_prediction_testing.py -testSeq sample_sequence_input.hg19.fa -testSS sample_secondary_structure_input.txt  
