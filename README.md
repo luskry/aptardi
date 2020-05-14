@@ -25,7 +25,7 @@ USAGE
 OPTIONS
 
 	1. Using pre-built model
-	Required arguments
+		Required arguments
 	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
 
 	-testSS <input_RNA_secondary_structure_file>	An input file that contains the RNA secondary structures of the input sequences.
