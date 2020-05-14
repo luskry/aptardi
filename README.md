@@ -30,8 +30,23 @@ OPTIONS
 	--f <fasta file>	Fasta file where headers are chromosomes
 	--r <transcriptome file>	Transcript file in gtf/gff format - this tool was designed to take the output of StringTie, but other formats may work
 	--b <bam file>	Sorted bam file of aligned RNA-Seq reads
-Two modes
-	1. Using pre-built model
+	1. Mode 1: Using pre-built model
+		Additional required arguments
+		--n/-n <model file>	Location of model downloaded from ml_scale folder
+		--t/-t <scale file>	Location of sclae downloaded from ml_scale folder 
+	2. Mode 2: Building your own model
+		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
+		Additional required arguments
+		--e/-e <model name>	Name to save custom model in output directory
+		--k/-k <scale name>	Name to save custom model's scale in output directory
+		--s/-s <polyA sites fille>	Tab separated file containing gold standard polyA sites for training model
+		--l/-l <chrom,strand,site>	0-based coordinates of chromosome, strand, and site columns in polyA sites file
+	Optional arguments
+		-h <help>	Prints help
+		--version/-v <version>	Prints version
+		--d/-d <debugging>	Saves intermediate files to facilitate issuess
+		-verbose/-vb <verbose>	Prints progress to standard output
+	
 		
 	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
 
