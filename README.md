@@ -30,29 +30,33 @@ OPTIONS
 	--f <fasta file>	Fasta file where headers are chromosomes
 	--r <transcriptome file>	Transcript file in gtf/gff format - this tool was designed to take the output of StringTie, but other formats may work
 	--b <bam file>	Sorted bam file of aligned RNA-Seq reads
-	--g <output filee>	Name to save output gtf file in output directory
+	--g <output file>	Name to save output gtf file in output directory
 	
 	1. Mode 1: Using pre-built model
 	
 		Additional required arguments
+		
 		--n/-n <model file>	Location of model downloaded from ml_scale folder
-		--t/-t <scale file>	Location of sclae downloaded from ml_scale folder 
+		--t/-t <scale file>	Location of scale downloaded from ml_scale folder 
 		
 	2. Mode 2: Building your own model
 	
 		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
 		
 		Additional required arguments
+		
 		--e/-e <model name>	Name to save custom model in output directory
 		--k/-k <scale name>	Name to save custom model's scale in output directory
 		--s/-s <polyA sites fille>	Tab separated file containing gold standard polyA sites for training model
 		
 		Additional optional arguments
+		
 		--c/-c <int>	Set seed for reproducibly building model
 		
 		--l/-l <int,int,int>	0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
 		
 	Universal optional arguments
+	
 		-h <help>	Prints help
 		--version/-v <version>	Prints version
 		--d/-d <debugging>	Saves intermediate files to facilitate issues
@@ -60,21 +64,7 @@ OPTIONS
 		--i/-i <int>		Maximum length analyzed per transcript (default: 300, which is number of 100 base windows analyzed, i.e 300 = 30,000 bases long transcript) 
 		--p/-p <float>	Probability threshold, predictions >= threshold are labeled transription stop site (default: 0.5, value must be constrained by (0, 1))
 		--a/-a <fr or rf>	upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
-		
-	
-		
-	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
 
-	-testSS <input_RNA_secondary_structure_file>	An input file that contains the RNA secondary structures of the input sequences.
-					The tool expects three most energy efficient RNA secondary structures for each input sequence.
-					These RNA secondary structures are generated using [RNAshapes](https://academic.oup.com/bioinformatics/article/22/4/500/184565).
-
-	-o <output_file_name>		Output file name is given using this option. If this option is not used then the tool outputs
-					AUC and AUPRC values of the prediction. In order to calculate the AUC and AUPRC values the tool 
-					needs ground truth data. The ground truth data is added at the end of the title of each
-					sequence. E.g. for a positive sequence example, the title is >chr15_100354095_positive_1; on
-					the other hand, the title of a negative sequence example is >chr15_100565120_positive_0. 
-	2. Building your own model
 EXAMPLE
 
 	python DeepPASTA_polyA_site_prediction_testing.py -testSeq sample_sequence_input.hg19.fa -testSS sample_secondary_structure_input.txt  
