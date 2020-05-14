@@ -23,7 +23,7 @@ USAGE
 	aptardi {OPTIONS}	
 
 OPTIONS
-	Required
+#Required
 
 	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
 
