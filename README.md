@@ -4,24 +4,26 @@
 ### Description
 High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries, i.e. the polyA site. 
 
-As a result, some have utilized the information provided by DNA sequence to more precisely identify polyA sites. However, DNA sequence information alone does not go beyond identifying the genomic sites of polyadenylation, i.e. transcript structure and quantity cannot be determined, information that is crucial for downstream systems genomics studies. 
+As a result, some have utilized the information provided by DNA sequence to more precisely identify polyA sites. However, DNA sequence information alone does not go beyond identifying the genomic sites of polyadenylation, i.e. expressed transcript structures and quantity cannot be determined for specific sampless, information that is crucial for downstream systems genomics studies on health and disease. 
 
-To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence information. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data for the sample with the genome of the sample to identify ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that contains novel transcripts that differ in their end sites from any original transcripts.
+To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence information. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data for the sample with the genome of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file. Note that aptardi does not evaluate intron-exon junctions but rather only re-annotates 3' ends accordingly.
 
 ### Requirements
-1. XXX
-2. XXX 
-3. XXX
-
-## PolyA site prediction
-In order to predict polyA sites, please use DeepPASTA_polyA_site_prediction_testing.py of polyA_site_prediction folder. 
-Sample input files are given in the sample_input directory. Commands to run the polyA site prediction tool:
+1. Linux machine
+2. Download aptardi
+Please run the following command to install aptardi:
+		
+		./configure
+		make
+		make install
+3. Download the machine learning model and scale in ml_scale folder (unless building your own model)
 
 USAGE
 
 	aptardi {OPTIONS}	
 
 OPTIONS
+	Required
 
 	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
 
