@@ -41,7 +41,7 @@ OPTIONS
 		
 	2. Mode 2: Building your own model
 	
-		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
+		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations 						     of polyA sites as the gold standard labels to train model
 		
 		Additional required arguments
 		
@@ -52,8 +52,7 @@ OPTIONS
 		Additional optional arguments
 		
 		--c/-c <int>	Set seed for reproducibly building model
-		
-		--l/-l <int,int,int>	0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
+		--l/-l <int,int,int>	0-based coordinates of chromosome, strand, and site columns in polyA sites file 					(comma separated list with no spaces)
 		
 	Universal optional arguments
 	
