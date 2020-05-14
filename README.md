@@ -16,6 +16,7 @@ Please run the following command to install aptardi:
 		./configure
 		make
 		make install
+		
 3. Download the machine learning model and scale in ml_scale folder (unless building your own model)
 
 USAGE
@@ -41,7 +42,7 @@ OPTIONS
 		
 	2. Mode 2: Building your own model
 	
-		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations 						     of polyA sites as the gold standard labels to train model
+		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
 		
 		Additional required arguments
 		
@@ -52,7 +53,7 @@ OPTIONS
 		Additional optional arguments
 		
 		--c/-c <int>	Set seed for reproducibly building model
-		--l/-l <int,int,int>	0-based coordinates of chromosome, strand, and site columns in polyA sites file 					(comma separated list with no spaces)
+		--l/-l <int,int,int>	0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
 		
 	Universal optional arguments
 	
@@ -62,143 +63,18 @@ OPTIONS
 		-verbose/-vb <verbose>	Prints progress to standard output
 		--i/-i <int>		Maximum length analyzed per transcript (default: 300, which is number of 100 base windows analyzed, i.e 300 = 30,000 bases long transcript) 
 		--p/-p <float>	Probability threshold, predictions >= threshold are labeled transription stop site (default: 0.5, value must be constrained by (0, 1))
-		--a/-a <fr or rf>	upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
+		--a/-a <fr or rf>	Upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
 
 EXAMPLE
 
-	python DeepPASTA_polyA_site_prediction_testing.py -testSeq sample_sequence_input.hg19.fa -testSS sample_secondary_structure_input.txt  
+	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir 
 
 
-### Input and output file of the polyA site prediction model
-The model takes two files as input: sequence and RNA secondary structure files. The sequence file is a FASTA file that contains two lines per example.
-The first line is the title of the sequence and the second line is the 200 nts sequence. The RNA secondary structure has four lines per example.
-The first line is the title and the next three lines for three RNA secondary structures. The model outputs AUC and AUPRC values when -o option
-is not used. In order to get the AUC and AUPRC values, the user must give the ground truth values using the title. E.g. title_ground_truth_value; 
-for a positive sequence example, the title is >chr15_100354095_positive_1; on the other hand, the title of a negative sequence example is >chr15_100565120_positive_0. 
-If the user uses -o option, the model will output the predicted likelihood values in an output file. 
-
-	
-## Tissue-specific polyA site prediction
-In order to predict tissue-specific polyA sites, please use DeepPASTA_tissue_specific_polyA_site_prediction_testing.py of tissue_specific_polyA_site_prediction folder. 
-Sample input files are given in the sample_input directory. Commands to run the tissue-specific polyA site prediction tool:
-
-USAGE
-
-	cd tissue_specific_polyA_site_prediction
-	python DeepPASTA_tissue_specific_polyA_site_prediction_testing.py {OPTIONS}
-
-OPTIONS
-
-	-test <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts.
-	
-	-tests <input_RNA_secondary_structure_file>	An input file that contains the RNA secondary structures of the input sequences. 
-                                                The tool expects three most energy efficient RNA secondary structures for each input sequence.
-						These RNA secondary structures are generated using [RNAshapes](https://academic.oup.com/bioinformatics/article/22/4/500/184565).
-
-	-testl <ground_truth_label_file>	An input file for the ground truth labels. The ground truth labels help the tool to calculate AUC and AUPRC values.
-
-	-o <output_file_name>	Output file name is given using this option. This option prints the result in an output file.
-
-EXAMPLE
-
-	python DeepPASTA_tissue_specific_polyA_site_prediction_testing.py -test sample_sequence_input.hg19.fa -tests sample_secondary_structure_input.txt -testl sample_tissue_specific_label.txt
-
-### Input and output of tissue-specific polyA site prediction model
-The model takes two files: sequence and RNA secondary structure files. The sequence file is a FASTA file that contains two lines per example.
-The first line is the title of the sequence and the second line is the 200 nts sequence. The RNA secondary structure has four lines per example.
-The first line is the title and the next three lines for three RNA secondary structures. The model outputs AUC and AUPRC values when -testl option
-is used. Using -testl option the user have to give the ground truth data. For each example, the ground truth data has two lines: these two lines are 
-title and read counts (of nine tissues separated by comma), respectively. If -o option is used the model outputs tissue-specific polyA site prediction 
-in a file. For each input example, the output file has a line containing title and nine likelihood values (separated by comma) for nine tissues.
+### Output
+Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf
 
 
-## Tissue-specific relatively dominant polyA site prediction
-The tool can also predict tissue-specific relatively dominant polyA sites. The files to run the tissue-specific relatively dominant polyA
-site prediction model are in tissue_specific_relatively_dominant folder. For an example, if an user wants to run the liver tissue relatively
-dominant polyA site prediction model, he/she have to follow the following commands:
-
-USAGE
-	
-	cd tissue_specific_relatively_dominant/tissue_set_one/liver
-	python DeepPASTA_relatively_dominant_liver_testing.py {OPTIONS}
-
-OPTIONS
-	
-	-test <input_file>	An input file that contains the gene name, two polyA sites, two sequences around the polyA sites, the sequences 
-				corresponding RNA secondary structures. If the user wants to caculate the AUC and AUPRC values of the prediction,
-				he/she also have to provide the polyA sites corresponding read counts in this file.
-
-	-o <output_file_name>	This option prints the result in an output file.
-
-EXAMPLE
-
-	python DeepPASTA_relatively_dominant_liver_testing.py -test sample_relatively_dominant_input_liver.txt
-
-### Input and output of tissue-specific relatively dominant polyA site prediction model
-If the user wants to calculate the AUC and AUPRC values of the prediction, he/she must input a file that contains the gene name, first polyA site location, second
-polyA site location, sequence (200 nts) around the first polyA site, sequence (200 nts) around the second polyA site, read count of the first polyA site, 
-read count of the second polyA site, RNA secondary structure of the first sequence, and RNA secondary structure of the second sequence. If the user wants 
-to output the prediction result to a file using -o option, the input file must contains all the above information except the read counts. The output file contains 
-the gene name, the two polyA site locations and the probabilities of relative dominance of these two polyA sites. Sample input files of the tissue-specific relatively 
-dominant polyA site prediction model are given in the sample_input folder. 
-
-
-## Tissue-specific absolutely dominant polyA site prediction
-The tool can predict tissue-specific absolutely dominant polyA site when sequence (and RNA secondary structure) around a polyA site of a gene 
-is given as input. The files to run the tissue-specific absolutely dominant polyA site prediction model are in tissue_specific_absolutely_dominant
-folder. For an example, if an user wants to run the liver tissue absolutely dominant polyA site prediction model, he/she have to follow the following
-commands:
-
-USAGE
-
-	cd tissue_specific_absolutely_dominant/liver
-	python DeepPASTA_absolutely_dominant_liver_testing.py {OPTIONS}
-
-OPTOINS
-
-	-test <input_file>	An input file that contains the gene name, tissue name, polyA site location, sequence around the polyA site, RNA secondary structure 
-				of the sequence. If the user wants to calculte the AUC and AUPRC values of the prediction, he/she have to provide the
-				label of the polyA site in this file.
-
-	-o <output_file_name>	This option prints the result in an output file.
-
-EXAMPLE
-
-	python DeepPASTA_absolutely_dominant_liver_testing.py -test sample_absolutely_dominant_input_liver.txt
-
-### Input and output of tissue-specific absolutely dominant polyA site prediction model
-If the user wants to calculate the AUC and AUPRC values of the prediction, he/she must input a file that contains the gene name, tissue name, polyA site location, sequence
-(200 nts) around the polyA site, RNA secondary structure of the sequence, and absolutely dominant label. If the user wants to output the prediction result to a file using
--o option, the input file must contains all the above information except the label. The output file contains the gene name, polyA site location and likelihood value of the 
-prediction. Sample input files of the tissue-specific absolutely dominant polyA site prediction model are given in the sample_input folder.
-
-## Creating environment for DeepPASTA
-After installing anaconda2, please run the following commands to create the environment for DeepPASTA:
-
-	conda create -n DeepPASTA_env python=2.7.5
-	source activate DeepPASTA_env
-	conda install -c anaconda keras
-	conda install -c anaconda scikit-learn
-
-## How to generate secondary structures from sequences?
-The first step of generating secondary structures uses RNAshapes (Steffen *et al.*, 2005). The output from RNAshapes is then converted to DeepPASTA suitable format
-using a sequence of commands. The necessary commands to generate DeepPASTA suitable secondary structures from sequences are given below: 
-
-	./RNAshapes -f <input_file_in_fa_format> -s -c 5 -t 1 -w 100 -W 100 -O 'D{%s\n}' > <output_file_in_txt_format>
-	python combining_substructure.py -i <output_from_the_previous_command> -o <output_file_in_txt_format>
-	python filtering_number_of_ss.py -n 3 -i <output_from_the_previous_command> -o <output_file_in_txt_format>
-	python shape_assign_per_nucleotide.py -c 3 -i <output_from_the_previous_command> -o <output_file_in_txt_format>
-
-RNAshapes (Steffen *et al.*, 2005) is provided in the generating_secondary_structure_from_sequence directory for user convenience. Please follow the manual of RNAshapes 
-(Steffen *et al.*, 2005) for the possible options. In filtering_number_of_ss.py and shape_assign_per_nucleotide.py scripts, 3 is used to generate the three most probable 
-secondary structreus for a given sequence. 
-
-## Genome-wide polyA site prediction for human
-We have used DeepPASTA to perform a genome-wide polyA site prediction for human based on the PolyA-Seq data in (Derti *et al.*, 2012).
-The prediction results can be found [**here**](http://www.cs.ucr.edu/~aaref001/genome_wide_prediction/genome_wide_polyA_site_prediction_human.txt).
-
-## Reference
-1. Derti, A. *et al.*, (2012) A quantitative atlas of polyadenylation in five mammals. *Genome Research*, **22** (6), 1173-1183 
-2. Steffen, P. *et al.*, (2005) RNAshapes: an integrated RNA analysis package based on abstract shapes. *Bioinformatics*, **22** (4), 500-503
+## References
+1. Pertea, M., Pertea, G., Antonescu, C. et al. StringTie enables improved reconstruction of a transcriptome from RNA-seq reads. Nat Biotechnol 33, 290–295 (2015). https://doi.org/10.1038/nbt.3122
  
-Note: If you have any question or suggestion please feel free to email: aaref001@ucr.edu or ashraful.arefeen@csebuet.org
+Note: If you have any question or suggestions please feel free to email: ryan.lusk@cuanschutz.edu
