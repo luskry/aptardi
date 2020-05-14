@@ -25,27 +25,42 @@ USAGE
 OPTIONS
 	
 	Required arguments
+	
 	--o <output directory>	Absolute directory path to save new gtf file 
-
 	--f <fasta file>	Fasta file where headers are chromosomes
 	--r <transcriptome file>	Transcript file in gtf/gff format - this tool was designed to take the output of StringTie, but other formats may work
 	--b <bam file>	Sorted bam file of aligned RNA-Seq reads
+	--g <output filee>	Name to save output gtf file in output directory
+	
 	1. Mode 1: Using pre-built model
+	
 		Additional required arguments
 		--n/-n <model file>	Location of model downloaded from ml_scale folder
 		--t/-t <scale file>	Location of sclae downloaded from ml_scale folder 
+		
 	2. Mode 2: Building your own model
+	
 		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
+		
 		Additional required arguments
 		--e/-e <model name>	Name to save custom model in output directory
 		--k/-k <scale name>	Name to save custom model's scale in output directory
 		--s/-s <polyA sites fille>	Tab separated file containing gold standard polyA sites for training model
-		--l/-l <chrom,strand,site>	0-based coordinates of chromosome, strand, and site columns in polyA sites file
-	Optional arguments
+		
+		Additional optional arguments
+		--c/-c <int>	Set seed for reproducibly building model
+		
+		--l/-l <int,int,int>	0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
+		
+	Universal optional arguments
 		-h <help>	Prints help
 		--version/-v <version>	Prints version
-		--d/-d <debugging>	Saves intermediate files to facilitate issuess
+		--d/-d <debugging>	Saves intermediate files to facilitate issues
 		-verbose/-vb <verbose>	Prints progress to standard output
+		--i/-i <int>		Maximum length analyzed per transcript (default: 300, which is number of 100 base windows analyzed, i.e 300 = 30,000 bases long transcript) 
+		--p/-p <float>	Probability threshold, predictions >= threshold are labeled transription stop site (default: 0.5, value must be constrained by (0, 1))
+		--a/-a <fr or rf>	upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
+		
 	
 		
 	-testSeq <input_sequence_file>	A FASTA file that contains human genomic sequences of length 200 nts. 
