@@ -10,11 +10,10 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 ### Requirements
 1. Linux machine
-2. Download aptardi
+2. Download aptardi (in aptardi folder)
 
 		cd aptardi-1.x
 		./configure --prefix=/where/to/install
-		./configure
 		make
 		make install
 		
