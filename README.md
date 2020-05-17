@@ -27,11 +27,11 @@ OPTIONS
 	
 	Required arguments
 	
-	--o <output directory>	Absolute directory path to save new gtf file 
-	--f <fasta file>	Fasta file where headers are chromosomes
+	--o <output directory>		Absolute directory path to save new gtf file 
+	--f <fasta file>		Fasta file where headers are chromosomes
 	--r <transcriptome file>	Transcript file in gtf/gff format - this tool was designed to take the output of StringTie, but other formats may work
-	--b <bam file>	Sorted bam file of aligned RNA-Seq reads
-	--g <output file>	Name to save output gtf file in output directory
+	--b <bam file>			Sorted bam file of aligned RNA-Seq reads
+	--g <output file>		Name to save output gtf file in output directory
 	
 	1. Mode 1: Using pre-built model
 	
