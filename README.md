@@ -29,9 +29,9 @@ OPTIONS
 	
 	--o <output directory>			Absolute directory path to save new gtf file 
 	--f <fasta file>			Fasta file where headers are chromosomes
-	--r <transcriptome file>		Transcript file in gtf/gff format - this tool was designed to take the output of StringTie, but other formats may work
+	--r <input gtf file or stdin>		Transcript file in gtf/gff format (or standard output from pipe) - this tool was designed to take the output of StringTie, but other formats may work
 	--b <bam file>				Sorted bam file of aligned RNA-Seq reads
-	--g <output file>			Name to save output gtf file in output directory
+	--g <output gtf file>			Name to save output gtf file in output directory
 	
 	1. Mode 1: Using pre-built model
 	
@@ -67,7 +67,10 @@ OPTIONS
 
 EXAMPLE
 
-	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir 
+	Ex.1: Standalone
+	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
+	Ex. 2: Pipe
+	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
 
 
 ### Output
