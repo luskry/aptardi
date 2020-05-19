@@ -27,11 +27,10 @@ OPTIONS
 	
 	Required arguments
 	
-	--o <output directory>			Absolute directory path to save new gtf file 
+	--o <output directory>			Absolute directory path with read/write permissions 
 	--f <fasta file>			Fasta file where headers are chromosomes
 	--r <input gtf file or stdin>		Transcript file in gtf/gff format (or standard output from pipe) - this tool was designed to take the output of StringTie, but other formats may work
 	--b <bam file>				Sorted bam file of aligned RNA-Seq reads
-	--g <output gtf file>			Name to save output gtf file in output directory
 	
 	1. Mode 1: Using pre-built model
 	
@@ -56,7 +55,7 @@ OPTIONS
 		--l/-l <int,int,int>		0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
 		
 	Universal optional arguments
-	
+		--g/-g <output gtf file>	Name to save output gtf file in output directory
 		-h <help>			Prints help/usage
 		--version/-v <version>		Prints version
 		--d/-d <debugging>		Saves intermediate files to facilitate issues
@@ -69,12 +68,16 @@ EXAMPLE
 
 	Ex.1: Standalone
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
-	Ex. 2: Pipe
+	Ex. 2: Pipe standard input to aptardi
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
+	Ex. 3: Write aptardi's gtf to standard output
+	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
+	Ex. 4: Pipe standard input to aptardi and write aptardi's gtf to standard output
+	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
 
 
 ### Output
-Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf.
+Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf. Note by default aptardi writes to standard out.
 
 
 ## References
