@@ -39,7 +39,7 @@ OPTIONS
 		--n/-n <model file>		Location of model downloaded from ml_scale folder
 		--t/-t <scale file>		Location of scale downloaded from ml_scale folder 
 		
-	2. Mode 2: Building your own model
+	2. Mode 2 (advanced usage): Building your own model
 	
 		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
 		
@@ -80,7 +80,7 @@ EXAMPLE
 
 
 ### Output
-Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf. Note by default aptardi writes to standard out.
+Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf. Note by default aptardi writes to standard output.
 
 
 ## References
