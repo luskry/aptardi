@@ -68,10 +68,13 @@ EXAMPLE
 
 	Ex.1: Standalone
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
+	
 	Ex. 2: Pipe standard input to aptardi
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
+	
 	Ex. 3: Write aptardi's gtf to standard output
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
+	
 	Ex. 4: Pipe standard input to aptardi and write aptardi's gtf to standard output
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
 
