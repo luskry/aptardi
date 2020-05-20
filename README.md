@@ -77,12 +77,10 @@ OPTIONS
 		Ex. Using HISAT2 with paired end, stranded reads generated from Illumina's protocol (e.g. firststrand)
 		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
 	
-3. Reconstruction file
+3. Reconstruction file [(annotation files (GTF format) for guide example below)](https://uswest.ensembl.org/info/data/ftp/index.html)
 		
 		Ex. Using StringTie with guide and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
-
-[Annotation files (GTF format) for guide](https://uswest.ensembl.org/info/data/ftp/index.html)
 
 EXAMPLES
 
