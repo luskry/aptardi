@@ -70,9 +70,10 @@ OPTIONS
 
 	Two options:
 	1. Sample specific genome
-	2. [Reference genome with headers as chromosomes](ftp://hgdownload.soe.ucsc.edu/goldenPath/currentGenomes/)
-		Ex. [Human:](ftp://hgdownload.soe.ucsc.edu/goldenPath/currentGenomes/Homo_sapiens/bigZips/)
-		Choose: hg19.fa.gz
+	2. [Reference genome with headers as chromosomes](https://hgdownload.soe.ucsc.edu/downloads.html)
+		
+	Ex. [Human:](ftp://hgdownload.soe.ucsc.edu/goldenPath/currentGenomes/Homo_sapiens/bigZips/)
+	Choose: hg19.fa.gz
 
 
 
