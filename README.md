@@ -78,10 +78,11 @@ OPTIONS
 		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
 	
 3. Reconstruction file
-
 		
-		Ex. Using StringTie with [guide](https://uswest.ensembl.org/info/data/ftp/index.html)
-		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
+		Ex. Using StringTie with guide and sorted bam file generated above
+		stringtie sorted_bam --rf -o stringtie.gtf -G <guide_file
+
+[Ensembl Annotation Guide Files (GTF)](https://uswest.ensembl.org/info/data/ftp/index.html)
 
 EXAMPLE
 
