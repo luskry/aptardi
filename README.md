@@ -64,6 +64,26 @@ OPTIONS
 		--p/-p <float>			Probability threshold, predictions >= threshold are labeled transription stop site (default: 0.5, value must be constrained by (0, 1))
 		--a/-a <fr or rf>		Upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
 
+### Generating required input files
+
+1. DNA sequence
+
+	Two options:
+		1. Sample specific genome
+		2. Reference genome with headers as chromosomes [Reference genome (ftp://hgdownload.soe.ucsc.edu/goldenPath/currentGenomes/)
+		
+		Ex. [Human:]ftp://hgdownload.soe.ucsc.edu/goldenPath/currentGenomes/Homo_sapiens/bigZips/
+		Choose: hg19.fa.gz
+
+
+
+2. Sorted bam file
+	
+		Ex.1: Standalone
+		aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
+	
+
+
 EXAMPLE
 
 	Ex.1: Standalone
@@ -78,19 +98,6 @@ EXAMPLE
 	Ex. 4: Pipe standard input to aptardi and write aptardi's gtf to standard output
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
 
-### Generating required input files
-
-1. DNA sequence
-
-	aptardi {OPTIONS}	
-
-OPTIONS
-	
-	Required arguments
-	
-	--o <output directory>			Absolute directory path with read/write permissions 
-	--f <fasta file>			Fasta file where headers are chromosomes
-	--r <input gtf file or stdin>		Transcri
 ### Output
 Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf. Note by default aptardi writes to standard output.
 
