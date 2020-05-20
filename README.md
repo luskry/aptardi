@@ -82,7 +82,7 @@ OPTIONS
 		Ex. Using StringTie with guide and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
 
-[AnnotationfFiles (GTF format) for guide](https://uswest.ensembl.org/info/data/ftp/index.html)
+[Annotation files (GTF format) for guide](https://uswest.ensembl.org/info/data/ftp/index.html)
 
 EXAMPLES
 
