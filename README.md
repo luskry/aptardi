@@ -80,11 +80,11 @@ OPTIONS
 3. Reconstruction file
 		
 		Ex. Using StringTie with guide and sorted bam file generated above
-		stringtie sorted_bam --rf -o stringtie.gtf -G <guide_file
+		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
 
-[Ensembl Annotation Guide Files (GTF)](https://uswest.ensembl.org/info/data/ftp/index.html)
+[AnnotationfFiles (GTF format) for guide](https://uswest.ensembl.org/info/data/ftp/index.html)
 
-EXAMPLE
+EXAMPLES
 
 	Ex.1: Standalone
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
