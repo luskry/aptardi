@@ -71,18 +71,17 @@ OPTIONS
 	Two options:
 	1. Sample specific genome
 	2. [Reference genome with headers as chromosomes](https://hgdownload.soe.ucsc.edu/downloads.html)
-		
-	Ex. [Human:](ftp://hgdownload.soe.ucsc.edu/goldenPath/currentGenomes/Homo_sapiens/bigZips/)
-	Choose: hg19.fa.gz
-
-
-
+	
 2. Sorted bam file
 	
-		Ex.1: Standalone
-		aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
+		Ex. Using HISAT2 with paired end, stranded reads generated from Illumina's protocol (e.g. firststrand)
+		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
 	
+3. Reconstruction file
 
+		
+		Ex. Using StringTie with [guide](https://uswest.ensembl.org/info/data/ftp/index.html)
+		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
 
 EXAMPLE
 
