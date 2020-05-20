@@ -78,7 +78,19 @@ EXAMPLE
 	Ex. 4: Pipe standard input to aptardi and write aptardi's gtf to standard output
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
 
+### Generating required input files
 
+1. DNA sequence
+
+	aptardi {OPTIONS}	
+
+OPTIONS
+	
+	Required arguments
+	
+	--o <output directory>			Absolute directory path with read/write permissions 
+	--f <fasta file>			Fasta file where headers are chromosomes
+	--r <input gtf file or stdin>		Transcri
 ### Output
 Aptardi analyzes the input gtf file and outputs a new gtf file where transcript ends are re-annotated accordingly. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf. Note by default aptardi writes to standard output.
 
