@@ -32,14 +32,14 @@ OPTIONS
 	--r <input gtf file or stdin>		Transcript file in gtf/gff format (or standard output from pipe) - this tool was designed to take the output of StringTie, but other formats may work
 	--b <bam file>				Sorted bam file of aligned RNA-Seq reads
 	
-	1. Mode 1: Using pre-built model
+	1. Mode 1: Using pre-built model (canonical usage)
 	
 		Additional required arguments
 		
 		--n/-n <model file>		Location of model downloaded from ml_scale folder
 		--t/-t <scale file>		Location of scale downloaded from ml_scale folder 
 		
-	2. Mode 2 (advanced usage): Building your own model
+	2. Mode 2: Building your own model (non-canonical usage)
 	
 		--m/-m <machine learning mode>	Enables Mode 2, building your own model, requires reliable genomic locations of polyA sites as the gold standard labels to train model
 		
