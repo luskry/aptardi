@@ -84,7 +84,7 @@ OPTIONS
 
 EXAMPLES
 
-	Ex.1: Standalone
+	Ex. 1: Standalone
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
 	
 	Ex. 2: Pipe standard input to aptardi
