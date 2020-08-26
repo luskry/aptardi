@@ -20,11 +20,17 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	4.a. Python3 dependencies in python_dependencies folder
 	
 5. aptardi 
+
 	Download aptardi.zip
+	
 	Put in desired folder (we recommend /usr/local/bin)
+	
 	Add executable permission
+	
 	Add aptardi to PATH
+	
 	Access path file	
+	
 	Add aptardi to path:
 
 		sudo chmod +x aptardi
