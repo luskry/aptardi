@@ -17,7 +17,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 4. Python3 (v.3.7.7 or newer)
 
-	4.a. Python3 dependencies in dependencies.yaml
+	4.a. Python3 dependencies in dependencies folder
 	
 5. aptardi (in aptardi folder)
 
@@ -26,7 +26,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 		make
 		make install
 		
-3. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
+6. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
 USAGE
 
