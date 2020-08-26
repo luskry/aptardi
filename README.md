@@ -19,12 +19,22 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 	4.a. Python3 dependencies in python_dependencies folder
 	
-5. aptardi (in aptardi folder)
+5. aptardi 
+	Download aptardi.zip
+	Put in desired folder (we recommend /usr/local/bin)
+	Add executable permission
 
-		cd aptardi-1.x
-		./configure --prefix=/where/to/install
-		make
-		make install
+		sudo chmod +x aptardi
+	
+	Add aptardi to PATH
+	1. Access path file:
+		
+		vi .bash_profile
+		
+	2. Add aptardi to path:
+		
+		#export PATH="/usr/local/bin/aptardi:$PATH"
+
 		
 **NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed
 		
