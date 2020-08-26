@@ -59,11 +59,11 @@ OPTIONS
 		--e/-e <model name>		Name to save custom model in output directory
 		--k/-k <scale name>		Name to save custom model's scale in output directory
 		--s/-s <polyA sites file>	Tab separated file containing gold standard polyA sites for training model
+		--l/-l <int,int,int>		0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
 		
 		Additional optional arguments
 		
 		--c/-c <int>			Set seed for reproducibly building model
-		--l/-l <int,int,int>		0-based coordinates of chromosome, strand, and site columns in polyA sites file (comma separated list with no spaces)
 		
 	Universal optional arguments
 		--g/-g <output gtf file>	Name to save output gtf file in output directory
