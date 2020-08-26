@@ -16,7 +16,9 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 **NOTE: having the bioconda samtools and bedtools Python3 packagess installed may prevent aptardi from working, please uninstall these if present**
 
 4. Python3 (v.3.7.7 or newer)
+
 	4.a. Python3 dependencies in dependencies.yaml
+	
 5. aptardi (in aptardi folder)
 
 		cd aptardi-1.x
