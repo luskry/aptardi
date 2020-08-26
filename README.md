@@ -11,7 +11,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 ### Requirements
 1. Linux machine
 2. [SAMtools (v.1.9 or newer)](http://www.htslib.org/download/)
-3. [BEDtools (v.2.29.2)  or newer)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
+3. [BEDtools (v.2.29.2 or newer)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 2. Download aptardi (in aptardi folder)
 
 		cd aptardi-1.x
