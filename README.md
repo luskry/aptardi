@@ -13,7 +13,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 2. [SAMtools (v.1.9 or newer)](http://www.htslib.org/download/)
 3. [BEDtools (v.2.29.2 or newer)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 
-**NOTE: having the bioconda samtools and bedtools Python3 packages installed may prevent aptardi from working, please uninstall these if present**
+**NOTE: The bioconda samtools and bedtools Python3 packages will may prevent aptardi from working, please uninstall these Python3 packages if present**
 
 4. Python3 (v.3.7.7 or newer)
 
@@ -25,6 +25,8 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 		./configure --prefix=/where/to/install
 		make
 		make install
+		
+**NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed
 		
 6. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
