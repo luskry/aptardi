@@ -25,17 +25,15 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	
 	Put in desired folder (we recommend /usr/local/bin)
 	
-	Add executable permission
+	1. Add executable permission
 	
-	Add aptardi to PATH
+	2. Access PATH file
 	
-	Access path file	
-	
-	Add aptardi to path:
+	3. Add aptardi to PATH
 
-		sudo chmod +x aptardi
-		vi .bash_profile
-		export PATH="/usr/local/bin/aptardi:$PATH"
+		1. sudo chmod +x aptardi
+		2. vi .bash_profile
+		3. export PATH="/usr/local/bin/aptardi:$PATH"
 	
 **NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed
 		
