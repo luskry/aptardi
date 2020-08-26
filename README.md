@@ -23,19 +23,14 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	Download aptardi.zip
 	Put in desired folder (we recommend /usr/local/bin)
 	Add executable permission
+	Add aptardi to PATH
+	Access path file	
+	Add aptardi to path:
 
 		sudo chmod +x aptardi
-	
-	Add aptardi to PATH
-	1. Access path file:
-		
 		vi .bash_profile
-		
-	2. Add aptardi to path:
-		
-		#export PATH="/usr/local/bin/aptardi:$PATH"
-
-		
+		export PATH="/usr/local/bin/aptardi:$PATH"
+	
 **NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed
 		
 6. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
