@@ -15,7 +15,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 3. [BEDtools (v.2.29.2 or newer)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 
-**NOTE: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please uninstall these Python3 packages if present**
+**Note: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please uninstall these Python3 packages if present**
 
 4. Python3 (v.3.7.7 or newer)
 
@@ -24,11 +24,11 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	tensorflow==2.0.1\
 	numpy==1.18.1\
 	pandas==1.0.3\
-	scikit_learn==0.22.2.post1 (**NOTE: v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
+	scikit_learn==0.22.2.post1 (**v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
 
 These libraries are also available in the python_dependencies folder as requirements.txt
 
-**NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed**
+**Note: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed**
 	
 6. aptardi 
 
