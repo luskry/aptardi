@@ -17,9 +17,19 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 4. Python3 (v.3.7.7 or newer)
 
-	4.a. Python3 dependencies, enironment.yml, in python_dependencies folder
+5. Besides the standard Python3 libraries, the following libraries (listed version or newer):
+
+tensorflow==2.0.0
+
+numpy==1.18.1
+
+pandas==1.0.3
+
+scikit_learn==0.23.2
+
+These libraries are also available in the python_dependencies folder as requirements.txt
 	
-5. aptardi 
+6. aptardi 
 
 	Download aptardi.zip
 	
@@ -37,7 +47,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	
 **NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed
 		
-6. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
+7. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
 USAGE
 
