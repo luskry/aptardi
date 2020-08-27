@@ -17,7 +17,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 4. Python3 (v.3.7.7 or newer)
 
-	4.a. Python3 dependencies in python_dependencies folder
+	4.a. Python3 dependencies, enironment.yml, in python_dependencies folder
 	
 5. aptardi 
 
