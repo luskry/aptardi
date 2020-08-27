@@ -19,7 +19,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 4. Python3 (v.3.7.7 or newer)
 
-5. Besides the standard Python3 libraries, the following libraries (listed version or newer):
+5. The following Python3 libraries (listed version or newer), in addition to the standard Python3 libraries:
 
 	tensorflow==2.0.1\
 	numpy==1.18.1\
@@ -42,7 +42,7 @@ These libraries are also available in the python_dependencies folder as requirem
 		vi .bash_profile
 		export PATH="/usr/local/bin/:$PATH"
 	
-7. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
+7. The machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
 USAGE
 
