@@ -105,11 +105,10 @@ OPTIONS
 3. Input gtf file
 
 	Two options:
-	
-	1. Reconstruction gtf file that considers expression (i.e. StringTie) - see example below
-	2. [Reference annotation that does not consider expression (i.e. Ensembl)](https://uswest.ensembl.org/info/data/ftp/index.html)
+		1. Reconstruction gtf file that considers expression (i.e. StringTie) - see example below
+		2. [Reference annotation that does not consider expression (i.e. Ensembl)](https://uswest.ensembl.org/info/data/ftp/index.html)
 		
-		'''Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
+			'''Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
 
 EXAMPLES
