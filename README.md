@@ -103,6 +103,7 @@ OPTIONS
 		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
 	
 3. Reconstruction file 
+
 	Two options:
 	1. Reconstruction gtf file that considers expression (i.e. StringTie) - see example below
 	2. [Reference annotation that does not consider expression (i.e. Ensembl)](https://uswest.ensembl.org/info/data/ftp/index.html)
