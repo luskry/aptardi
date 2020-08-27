@@ -126,7 +126,7 @@ Note:
 
 Note: [StringTie](https://ccb.jhu.edu/software/stringtie/#install) and [RSEM](https://deweylab.github.io/RSEM/) are required to utilize the piping examples]
 
-	Ex. 1: Standalone using pre-built model
+	Ex. 1: Standalone using pre-built model (~20 min runtime)
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g name_aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
 	
 	Ex. 2: Standalone building own model
