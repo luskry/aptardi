@@ -45,7 +45,7 @@ These libraries are also available in the python_dependencies folder as requirem
 		vi .bash_profile
 		export PATH="/usr/local/bin/aptardi:$PATH"
 	
-**NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed
+**NOTE: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed**
 		
 7. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
