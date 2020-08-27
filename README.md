@@ -32,7 +32,7 @@ These libraries are also available in the python_dependencies folder as requirem
 	
 6. aptardi 
 
-	Download the latest release of aptardi (aptardi.zip in the release link)\
+	Download the latest release of aptardi (aptardi.zip under Releases)\
 	Put in desired folder (we recommend /usr/local/bin)\
 	Add executable permission\
 	Access PATH file\
