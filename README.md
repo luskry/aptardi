@@ -111,7 +111,7 @@ EXAMPLES
 
 Demo files (in demo folder, these example files contain data only for chromosome 1):
 1. sorted.bam
-2. hg38.fa 
+2. hg38.fa.zip (please unzip)
 3. stringtie.gtf 
 4. polya_sites.bed
 
