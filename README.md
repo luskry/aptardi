@@ -21,12 +21,9 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 5. Besides the standard Python3 libraries, the following libraries (listed version or newer):
 
-tensorflow==2.0.1
-
-numpy==1.18.1
-
-pandas==1.0.3
-
+tensorflow==2.0.1\
+numpy==1.18.1\
+pandas==1.0.3\
 scikit_learn==0.23.2
 
 These libraries are also available in the python_dependencies folder as requirements.txt
@@ -35,10 +32,10 @@ These libraries are also available in the python_dependencies folder as requirem
 	
 6. aptardi 
 
-	Download aptardi.zip
-	Put in desired folder (we recommend /usr/local/bin)
-	Add executable permission
-	Access PATH file
+	Download aptardi.zip\
+	Put in desired folder (we recommend /usr/local/bin)\
+	Add executable permission\
+	Access PATH file\
 	Add aptardi to PATH
 
 		sudo chmod +x aptardi
