@@ -36,11 +36,11 @@ These libraries are also available in the python_dependencies folder as requirem
 	Put in desired folder (we recommend /usr/local/bin)\
 	Add executable permission\
 	Access PATH file\
-	Add aptardi to PATH
+	Add aptardi to PATH (if you put aptardi in /usr/local/bin/ the PATH will almost assuredly be in your profile)
 
 		sudo chmod +x aptardi
 		vi .bash_profile
-		export PATH="/usr/local/bin/aptardi:$PATH"
+		export PATH="/usr/local/bin/:$PATH"
 	
 7. Download the machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
