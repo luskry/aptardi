@@ -93,9 +93,9 @@ OPTIONS
 
 1. DNA sequence
 
-	Two options:\
-	1. [Reference genome with headers as chromosomes](https://hgdownload.soe.ucsc.edu/downloads.html)\
-	2. Sample specific genome (user generated)\
+	Two options:
+	1. [Reference genome with headers as chromosomes](https://hgdownload.soe.ucsc.edu/downloads.html)
+	2. Sample specific genome (user generated)
 	
 2. Sorted bam file
 	Note: Prior to aligning reads to the genome, we recommend assessing read quality with a tool such as [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and performing any processing steps based on the results (e.g. trim adapters with [Cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html) 
@@ -105,8 +105,8 @@ OPTIONS
 
 3. Input gtf file
 
-	Two options:
-	1. Reconstruction gtf file that considers expression (i.e. StringTie) - see example below
+	Two options:\
+	1. Reconstruction gtf file that considers expression (i.e. StringTie) - see example below\
 	2. [Reference annotation that does not consider expression (i.e. Ensembl)](https://uswest.ensembl.org/info/data/ftp/index.html)
 		
 		```Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
