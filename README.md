@@ -130,7 +130,7 @@ Note: [StringTie](https://ccb.jhu.edu/software/stringtie/#install) and [RSEM](ht
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g name_aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
 	
 	Ex. 2: Standalone building own model (~ 1 hr runtime)
-	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g name_aptardi.gtf --m --e name_model.hdf5 --k name_scale.pk --s polya_sites.bed --o output_dir
+	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g name_aptardi.gtf --m --e name_model.hdf5 --k name_scale.pk --s polya_sites.bed --l 0,4,1 --o output_dir
 	
 	Ex. 3: Pipe upstream standard input from StringTie to aptardi
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --g name_aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
