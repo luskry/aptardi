@@ -24,7 +24,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 tensorflow==2.0.1\
 numpy==1.18.1\
 pandas==1.0.3\
-scikit_learn==0.23.2
+scikit_learn==0.22.1 (**NOTE: v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
 
 These libraries are also available in the python_dependencies folder as requirements.txt
 
