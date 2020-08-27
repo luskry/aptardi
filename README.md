@@ -123,7 +123,7 @@ Demo files (in demo folder, these example files contain data only for chromosome
 Note: 
 1. Any command provided to an argument that starts with name (i.e. name_aptardi.gtf) should be given simply a name and not an absolute path; the file will be saved to the output directory path with the name.
 2. Any command provided to an argument that does not start with name requires the path; the path can be relative to the current working directory, but when in doubt, specify the absolute path (i.e. /Users/foo_name/model.hdf5).
-3. [StringTie](https://ccb.jhu.edu/software/stringtie/#install) and [RSEM](https://deweylab.github.io/RSEM/) are required to utilize the piping examples
+[StringTie](https://ccb.jhu.edu/software/stringtie/#install) and [RSEM](https://deweylab.github.io/RSEM/) are required to utilize the piping examples.
 
 	Ex. 1: Standalone using pre-built model (~25 min runtime)
 	aptardi --b sorted.bam --f hg38.fa --r stringtie.gtf --g name_aptardi.gtf --n model.hdf5 --t scale.pk --o output_dir
