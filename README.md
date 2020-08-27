@@ -94,15 +94,18 @@ OPTIONS
 1. DNA sequence
 
 	Two options:
-	1. Sample specific genome
-	2. [Reference genome with headers as chromosomes](https://hgdownload.soe.ucsc.edu/downloads.html)
+	1. [Reference genome with headers as chromosomes](https://hgdownload.soe.ucsc.edu/downloads.html)
+	2. Sample specific genome (user generated)
 	
 2. Sorted bam file
 	
-		Ex. Using HISAT2 with paired end, stranded reads generated from Illumina's protocol (e.g. firststrand)
+		Ex. Using HISAT2 with paired end, stranded reads generated from Illumina's protocol (i.e. firststrand)
 		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
 	
-3. Reconstruction file [(for reference annotation files (GTF format) click on link, for guide see example below)](https://uswest.ensembl.org/info/data/ftp/index.html)
+3. Reconstruction file 
+	Two options:
+	1. Reconstruction gtf file that considers expression (i.e. StringTie) - see example below
+	2. [Reference annotation that does not consider expression (i.e. Ensembl)](https://uswest.ensembl.org/info/data/ftp/index.html)
 		
 		Ex. Using StringTie with guide and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
