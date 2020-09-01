@@ -30,7 +30,7 @@ These libraries are also available in the python_dependencies folder as requirem
 
 **Note: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed**
 	
-6. aptardi 
+6. aptardi (installation time <5 min)
 
 	Download the latest release of aptardi (aptardi.zip under Releases)\
 	Put in desired folder (we recommend /usr/local/bin)\
