@@ -41,6 +41,12 @@ These libraries are also available in the python_dependencies folder as requirem
 		sudo chmod +x aptardi
 		vi .bash_profile
 		export PATH="/usr/local/bin/:$PATH"
+		
+To check if aptardi was properly installed in your PATH, enter the following in your terminal
+
+	which aptardi
+	
+This command should print to your screen aptardi's PATH
 	
 7. The machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
