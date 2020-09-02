@@ -159,4 +159,4 @@ Aptardi analyzes the input gtf file and outputs a new gtf file with novel aptard
 5. Andrews, S. FASTQC. A quality control tool for high throughput sequence data (2010).
 6. Martin, M. Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnet.journal 17, 10, doi:10.14806/ej.17.1.200 (2011).
  
-If you have any question or suggestions please feel free to email: ryan.lusk@cuanschutz.edu
+If you have any questions or suggestions please feel free to email: ryan.lusk@cuanschutz.edu
