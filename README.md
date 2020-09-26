@@ -151,7 +151,7 @@ Note:
 Aptardi analyzes the input gtf file and outputs a new gtf file with novel aptardi transcripts added. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
 
 
-### References
+## References
 1. Pertea, M., Pertea, G., Antonescu, C. et al. StringTie enables improved reconstruction of a transcriptome from RNA-seq reads. Nat Biotechnol 33, 290–295 (2015). https://doi.org/10.1038/nbt.3122
 2. Kent WJ, Sugnet CW, Furey TS, et al. The human genome browser at UCSC. Genome Res. 2002;12(6):996‐1006. doi:10.1101/gr.229102
 3. Kim D, Langmead B, Salzberg SL. HISAT: a fast spliced aligner with low memory requirements. Nat Methods. 2015;12(4):357‐360. doi:10.1038/nmeth.3317
