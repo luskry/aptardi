@@ -1,14 +1,14 @@
-### aptardi
+## aptardi
 ***a**lternative **p**olyadenylation **t**rascriptome **a**nalysis from **R**NA sequencing and **D**NA sequencing **i**nformation*
 
-### Description
+## Description
 High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries, i.e. the polyA site. 
 
 As a result, some have utilized the information provided by DNA sequence to more precisely identify polyA sites. However, DNA sequence information alone does not consider expression of specific samples, information that is crucial for downstream systems genomics studies on health and disease. 
 
 To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence information. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data for the sample with the genome (DNA sequence) of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that incorporates novel transcripts identified by aptardi. Note that aptardi does not evaluate intron junctions but rather only annotates 3' ends accordingly.
 
-### Requirements
+## Requirements
 1. Linux machine
 
 2. [SAMtools (v.1.9 or newer)](http://www.htslib.org/download/)
@@ -50,11 +50,11 @@ This command should print to your screen aptardi's PATH
 	
 7. The machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
-USAGE
+### Usage
 
 	aptardi {OPTIONS}	
 
-OPTIONS
+### Options
 	
 	Required arguments
 	
@@ -118,7 +118,7 @@ OPTIONS
 		```Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
 
-EXAMPLES
+### Examples
 
 Demo files (in demo folder, these example files contain data only for chromosome 1):
 1. sorted.bam
@@ -147,11 +147,11 @@ Note:
 	Ex. 5: Pipe StringTie standard input to aptardi and pipe aptardi's standard output gtf to downstream RSEM
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
 
-### Output
+## Output
 Aptardi analyzes the input gtf file and outputs a new gtf file with novel aptardi transcripts added. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
 
 
-## References
+### References
 1. Pertea, M., Pertea, G., Antonescu, C. et al. StringTie enables improved reconstruction of a transcriptome from RNA-seq reads. Nat Biotechnol 33, 290–295 (2015). https://doi.org/10.1038/nbt.3122
 2. Kent WJ, Sugnet CW, Furey TS, et al. The human genome browser at UCSC. Genome Res. 2002;12(6):996‐1006. doi:10.1101/gr.229102
 3. Kim D, Langmead B, Salzberg SL. HISAT: a fast spliced aligner with low memory requirements. Nat Methods. 2015;12(4):357‐360. doi:10.1038/nmeth.3317
