@@ -94,7 +94,7 @@ This command should print to your screen aptardi's PATH
 		--i/-i <int>			Maximum length analyzed per transcript (default: 300, which is number of bins analyzed, i.e 300 and bin size of 100 = 300 * 100 = 30,000 bases long transcript) 
 		--p/-p <float>			Probability threshold, predictions >= threshold are labeled transription stop site (default: 0.5, value must be constrained by (0, 1))
 		--a/-a <fr or rf>		Upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
-		--w/-w <int>			Size of bin to make predictions on (default: 100, choices: 25-200 in 25 base increments)
+		--w/-w <int>			Size of bin to make predictions on (default: 100, choices: 25-200 in 25 base increments, we DO NOT recommend altering this argument using the pre-built model since this model was built using 100 base bins)
 
 ### Generating required input files
 
