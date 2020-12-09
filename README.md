@@ -105,7 +105,7 @@ This command should print to your screen aptardi's PATH
 	2. Sample specific genome (user generated)
 	
 2. Sorted bam file
-	Note: Prior to aligning reads to the genome, we recommend assessing read quality with a tool such as [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and performing any processing steps based on the results (e.g. trim adapters with [Cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html) 
+	Note: Prior to aligning reads to the genome, we recommend assessing read quality with a tool such as [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and performing any processing steps based on the results (e.g. trim adapters with [Cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html)) 
 	
 		Ex. Using HISAT2 with paired end, stranded reads generated from Illumina's protocol (i.e. firststrand)
 		(hisat2 -q -p 5 --reorder -t --rna-strandness RF --dta -x <hisat2_index> -1 <myfq1_1.fq,myfq2_1.fq,etc> -2 <myfq1_2.fq,myfq2_2.fq,etc> | samtools view -F 0x4 -bS - | samtools sort - -o sorted.bam 2> sum_sorted_bam.txt
