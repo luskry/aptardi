@@ -11,9 +11,9 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 ## Requirements
 1. Linux machine
 
-2. [SAMtools (v.1.9 or newer)](http://www.htslib.org/download/)
+2. [SAMtools (v.1.9)](http://www.htslib.org/download/)
 
-3. [BEDtools (v.2.29.2 or newer)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
+3. [BEDtools (v.2.29.2)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 
 **Note: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please uninstall these Python3 packages if present**
 
@@ -21,7 +21,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 5. The following Python3 libraries (listed version), in addition to the standard Python3 libraries:
 
-	tensorflow==2.0.0 (**NEWER VERSIONS ARE CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)\ 
+	tensorflow==2.0.0 (**NEWER VERSIONS ARE CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)<br/> 
 	numpy==1.18.1\
 	pandas==1.0.3\
 	scikit_learn==0.22.2.post1 (**v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
@@ -118,7 +118,6 @@ This command should print to your screen aptardi's PATH
 		
 		```Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
-
 ### Examples
 
 Demo files (in demo folder, these example files contain data only for chromosome 1):
