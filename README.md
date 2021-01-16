@@ -17,11 +17,11 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 **Note: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please uninstall these Python3 packages if present**
 
-4. Python3 (v.3.7.7 or newer)
+4. Python3 (v.3.7.7) (**PYTHON VERSIONS 3.8x AND ABOVE DO NOT SUPPORT THE TENSORFLOW VERSION REQUIRED**)
 
-5. The following Python3 libraries (listed version or newer), in addition to the standard Python3 libraries:
+5. The following Python3 libraries (listed version), in addition to the standard Python3 libraries:
 
-	tensorflow==2.4.0\
+	tensorflow==2.0.0 (**NEWER VERSIONS ARE CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)\ 
 	numpy==1.18.1\
 	pandas==1.0.3\
 	scikit_learn==0.22.2.post1 (**v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
