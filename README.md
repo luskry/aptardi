@@ -21,7 +21,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 5. The following Python3 libraries (listed version), in addition to the standard Python3 libraries:
 
-	tensorflow==2.0.0 (**NEWER VERSIONS ARE CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)\ 
+	tensorflow==2.0.0 (**NEWER VERSIONS ARE CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**) 
 	numpy==1.18.1\
 	pandas==1.0.3\
 	scikit_learn==0.22.2.post1 (**v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
