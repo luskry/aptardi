@@ -1,5 +1,5 @@
 ## aptardi
-***a**lternative **p**olyadenylation **t**rascriptome **a**nalysis from **R**NA sequencing and **D**NA sequencing **i**nformation*
+***a**lternative **p**olyadenylation **t**rascriptome **a**nalysis from **R**NA sequencing and **D**NA sequencing **i**nformation*\
 [![DOI](https://zenodo.org/badge/119283548.svg)](https://zenodo.org/badge/latestdoi/119283548)
 
 ## Description
