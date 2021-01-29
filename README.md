@@ -1,5 +1,6 @@
 ## aptardi
 ***a**lternative **p**olyadenylation **t**rascriptome **a**nalysis from **R**NA sequencing and **D**NA sequencing **i**nformation*
+[![DOI](https://zenodo.org/badge/119283548.svg)](https://zenodo.org/badge/latestdoi/119283548)
 
 ## Description
 High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries, i.e. the polyA site. 
