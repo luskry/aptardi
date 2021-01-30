@@ -4,11 +4,11 @@
 [![DOI](https://zenodo.org/badge/119283548.svg)](https://zenodo.org/badge/latestdoi/119283548)
 
 ## Description
-High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries, i.e. the polyA site. 
+High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries such as the 3' end, i.e. the polyadenylation (polyA) site. 
 
-As a result, some have utilized the information provided by DNA sequence to more precisely identify polyA sites. However, DNA sequence information alone does not consider expression of specific samples, information that is crucial for downstream systems genomics studies on health and disease. 
+As a result, some have utilized the information afforded by DNA sequence to identify polyA sites. However, DNA sequence alone does not consider expression of specific samples, information that is crucial for studies concerned with the role of alternative polyadenylation on health and disease. 
 
-To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence information. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data for the sample with the genome (DNA sequence) of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that incorporates novel transcripts identified by aptardi. Note that aptardi does not evaluate intron junctions but rather only annotates 3' ends accordingly.
+To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data from the sample with the genome (DNA sequence) of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that incorporates transcripts identified by aptardi. Note that aptardi does not evaluate intron junctions but rather only evalutes 3' terminal exons of input transcripts annotates 3' ends accordingly.
 
 ## Requirements
 1. Linux machine
@@ -150,7 +150,7 @@ Note:
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
 
 ## Output
-Aptardi analyzes the input gtf file and outputs a new gtf file with novel aptardi transcripts added. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
+Aptardi analyzes the input gtf file and outputs a new gtf file with aptardi transcripts added along with original transcripts, i.e. aptardi does not remove any transcripts from the input transcriptome. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
 
 
 ## References
