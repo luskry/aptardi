@@ -152,7 +152,13 @@ Note:
 ## Output
 Aptardi analyzes the input gtf file and outputs a new gtf file with aptardi transcripts added along with original transcripts, i.e. aptardi does not remove any transcripts from the input transcriptome. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
 
+## Filtering
+Since aptardi identifies **genomic** regions to annotate polyA sites, we HIGHLY RECOMMEND filtering to remove redundant, i.e. false positive, aptardi transcripts, especially if your input transcriptome has many transcript isoforms that share 3' terminal exons. For example, if aptardi probes the same region for two transcript isoforms and identifies a polyA site, it will enumerate an aptardi transcript for both isoforms (i.e. add two additional aptardi transcripts to make four total) when the polyA site may truly represent an APA transcript for a single of these two transcripts. In our recent work where we applied aptardi to ~100 RNA-Seq samples, we found a relatively conservative filter of removing transcripts without at least one count in 2/3 of samples does a good job of identifying high quality transcripts (we will be sure to add a link to the paper when it's published). If you are working fewer or a single sample, simply using a threshold may also work. Here is a summary of our filtering pipeline:
 
+	1. Quantitate aptardi transcriptome with [RSEM](https://deweylab.github.io/RSEM/)
+	2. Generate high quality transcriptome by removing transcripts without at least 1 count in 2/3 of samples
+	3. Proceed with downstream analyses (we re-quantitated with [RSEM](https://deweylab.github.io/RSEM/) to perform differential expression analysis)
+	
 ## References
 1. Pertea, M., Pertea, G., Antonescu, C. et al. StringTie enables improved reconstruction of a transcriptome from RNA-seq reads. Nat Biotechnol 33, 290–295 (2015). https://doi.org/10.1038/nbt.3122
 2. Kent WJ, Sugnet CW, Furey TS, et al. The human genome browser at UCSC. Genome Res. 2002;12(6):996‐1006. doi:10.1101/gr.229102
