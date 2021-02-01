@@ -52,11 +52,11 @@ This command should print to your screen aptardi's PATH
 	
 7. The machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
 
-### Usage
+## Usage
 
 	aptardi {OPTIONS}	
 
-### Options
+## Options
 	
 	Required arguments
 	
@@ -98,7 +98,17 @@ This command should print to your screen aptardi's PATH
 		--a/-a <fr or rf>		Upstream/downstream mate orientations for paired-end alignment against the forward reference strand, fr = firststrand (appropriate for Illumina paired-end library pre, rf = secondstrand (default: fr)
 		--w/-w <int>			Size of bin to make predictions on (default: 100, choices: 25-200 in 25 base increments, we DO NOT recommend altering this argument using the pre-built model since this model was built using 100 base bins)
 
-### Generating required input files
+## Output
+Aptardi analyzes the input gtf file and outputs a new gtf file with aptardi transcripts added along with original transcripts, i.e. aptardi does not remove any transcripts from the input transcriptome. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
+
+## Filtering
+Since aptardi identifies **genomic** regions to annotate polyA sites, we HIGHLY RECOMMEND filtering to remove redundant, i.e. false positive, aptardi transcripts, especially if your input transcriptome has many transcript isoforms that share 3' terminal exons. For example, if aptardi probes the same region for two transcript isoforms and identifies a polyA site, it will enumerate an aptardi transcript for both isoforms (i.e. add two additional aptardi transcripts to make four total) when the polyA site may truly represent an APA transcript for a single of these two isoforms. In our recent work where we applied aptardi to ~100 RNA-Seq samples, we found a relatively conservative filter of removing transcripts without at least one count in 2/3 of samples does a good job of identifying high quality aptardi transcripts (we will be sure to add a link to the paper when it's published). If you are working fewer or a single sample, simply using a threshold will likely also work, but this exact number may depend on your dataset. Here is a summary of our filtering pipeline:
+
+	1. Quantitate aptardi transcriptome with [RSEM](https://deweylab.github.io/RSEM/)
+	2. Generate high quality transcriptome by removing transcripts without at least 1 count in 2/3 of samples
+	3. Proceed with downstream analyses (we re-quantitated the high quality transcriptome with [RSEM](https://deweylab.github.io/RSEM/) to perform differential expression analysis)
+	
+## Generating required input files
 
 1. DNA sequence
 
@@ -120,7 +130,7 @@ This command should print to your screen aptardi's PATH
 		
 		```Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
-### Examples
+## Examples
 
 Demo files (in demo folder, these example files contain data only for chromosome 1):
 1. sorted.bam
@@ -148,16 +158,6 @@ Note:
 	
 	Ex. 5: Pipe StringTie standard input to aptardi and pipe aptardi's standard output gtf to downstream RSEM
 	stringtie sorted.bam {OPTIONS} | aptardi --b sorted.bam --f hg38.fa --r - --n model.hdf5 --t scale.pk --o output_dir | rsem-prepare-reference --gtf - {OPTIONS}
-
-## Output
-Aptardi analyzes the input gtf file and outputs a new gtf file with aptardi transcripts added along with original transcripts, i.e. aptardi does not remove any transcripts from the input transcriptome. The new gtf file can be used for downstream analyses (i.e. quantitation and systems studies) in the same manner as the input gtf file. Note by default aptardi writes to standard output.
-
-## Filtering
-Since aptardi identifies **genomic** regions to annotate polyA sites, we HIGHLY RECOMMEND filtering to remove redundant, i.e. false positive, aptardi transcripts, especially if your input transcriptome has many transcript isoforms that share 3' terminal exons. For example, if aptardi probes the same region for two transcript isoforms and identifies a polyA site, it will enumerate an aptardi transcript for both isoforms (i.e. add two additional aptardi transcripts to make four total) when the polyA site may truly represent an APA transcript for a single of these two isoforms. In our recent work where we applied aptardi to ~100 RNA-Seq samples, we found a relatively conservative filter of removing transcripts without at least one count in 2/3 of samples does a good job of identifying high quality aptardi transcripts (we will be sure to add a link to the paper when it's published). If you are working fewer or a single sample, simply using a threshold will likely also work, but this exact number may depend on your dataset. Here is a summary of our filtering pipeline:
-
-	1. Quantitate aptardi transcriptome with [RSEM](https://deweylab.github.io/RSEM/)
-	2. Generate high quality transcriptome by removing transcripts without at least 1 count in 2/3 of samples
-	3. Proceed with downstream analyses (we re-quantitated the high quality transcriptome with [RSEM](https://deweylab.github.io/RSEM/) to perform differential expression analysis)
 	
 ## References
 1. Pertea, M., Pertea, G., Antonescu, C. et al. StringTie enables improved reconstruction of a transcriptome from RNA-seq reads. Nat Biotechnol 33, 290–295 (2015). https://doi.org/10.1038/nbt.3122
