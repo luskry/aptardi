@@ -91,7 +91,7 @@ This command should print to your screen aptardi's PATH
 		--g/-g <output gtf file>	Name to save output gtf file in output directory
 		-h <help>			Prints help/usage
 		--version/-v <version>		Prints version
-		--d/-d <debugging>		Saves intermediate files to facilitate issues
+		--d/-d <debugging>		Saves intermediate files to facilitate debugging
 		-verbose/-vb <verbose>		Prints progress to standard output
 		--i/-i <int>			Maximum length analyzed per transcript (default: 300, which is number of bins analyzed, i.e 300 and bin size of 100 = 300 * 100 = 30,000 bases long transcript) 
 		--p/-p <float>			Probability threshold, predictions >= threshold are labeled transription stop site (default: 0.5, value must be constrained by (0, 1))
@@ -130,6 +130,7 @@ Since aptardi identifies **genomic** regions to annotate polyA sites, we HIGHLY 
 		
 		```Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
+
 ## Examples
 
 Demo files (in demo folder, these example files contain data only for chromosome 1):
