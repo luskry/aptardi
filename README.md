@@ -130,7 +130,6 @@ Since aptardi identifies **genomic** regions to annotate polyA sites, we HIGHLY 
 		
 		```Ex. Using StringTie with guide (i.e. Ensembl reference annotation) and sorted bam file generated above
 		stringtie sorted.bam --rf -o stringtie.gtf -G <guide_file>
-
 ## Examples
 
 Demo files (in demo folder, these example files contain data only for chromosome 1):
