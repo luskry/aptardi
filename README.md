@@ -3,7 +3,7 @@
 
 [![DOI](https://zenodo.org/badge/119283548.svg)](https://zenodo.org/badge/latestdoi/119283548)
 
-If you find aptardi useful in your research, please consider citing its accompanying mauscript (in press at Nature Communications, we will add the link once its published, which should be around mid-March 2021).
+If you find aptardi useful in your research, please consider citing its accompanying [mauscript](https://doi.org/10.1038/s41467-021-21894-x).
 
 ## Description
 High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing and quantitating the expressed transcriptome. Yet constructing the transcriptome from RNA-Seq data alone is a challenging task, particularly at transcript boundaries such as the 3' end, i.e. the polyadenylation (polyA) site. 
