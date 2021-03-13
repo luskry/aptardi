@@ -106,9 +106,9 @@ Aptardi analyzes the input gtf file and outputs a new gtf file with aptardi tran
 ## Filtering
 Since aptardi identifies **genomic** regions to annotate polyA sites, we HIGHLY RECOMMEND filtering to remove redundant, i.e. false positive, aptardi transcripts, especially if your input transcriptome has many transcript isoforms that share 3' terminal exons. For example, if aptardi probes the same region for two transcript isoforms and identifies a polyA site, it will enumerate an aptardi transcript for both isoforms (i.e. add two additional aptardi transcripts to make four total) when the polyA site may truly represent an APA transcript for a single of these two isoforms. In our recent work where we applied aptardi to ~100 RNA-Seq samples, we found a relatively conservative filter of removing transcripts without at least one count in 2/3 of samples does a good job of identifying high quality aptardi transcripts (we will be sure to add a link to the paper when published). If you are working with fewer or a single sample, simply using a threshold will likely also work, but this exact number may depend on your dataset. Here is a summary of our filtering pipeline:
 
-	1. Quantitate aptardi transcriptome with [RSEM](https://deweylab.github.io/RSEM/)
+	1. Quantitate aptardi transcriptome with RSEM
 	2. Generate high quality transcriptome by removing transcripts without at least 1 count in 2/3 of samples
-	3. Proceed with downstream analyses (we re-quantitated the high quality transcriptome with [RSEM](https://deweylab.github.io/RSEM/) to perform differential expression analysis)
+	3. Proceed with downstream analyses (we re-quantitated the high quality transcriptome with RSEM to perform differential expression analysis)
 	
 ## Generating required input files
 
