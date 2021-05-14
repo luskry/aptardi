@@ -7,6 +7,6 @@ setup(name='aptardi',
       author_email='ryan.lusk@cuanschutz.edu',
       url='https://github.com/luskry/aptardi',
       packages=['aptardi'],
-      package_dir={'aptardi': 'src/aptardi'}
+      package_dir={'aptardi': 'src/aptardi'},
       package_data={'aptardi': ['ml_scale/model.hdf5', 'ml_scale/scale.pk']})
     
