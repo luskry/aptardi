@@ -8,5 +8,5 @@ setup(name='aptardi',
       url='https://github.com/luskry/aptardi',
       packages=['aptardi'],
       package_dir={'aptardi': 'src/'},
-      package_data={'aptardi': ['ml_scale/model.hdf5', 'ml_scale/scale.pk']}
+      package_data={'aptardi': ['ml_scale/model.hdf5', 'ml_scale/scale.pk']},
       entry_points={'console_scripts': ['aptardi = src.aptardi:main']})
