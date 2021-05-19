@@ -21,21 +21,25 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 4. [BEDtools (v.2.29.2)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 
-**Note: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please make sure these packages are not installed in any environment**
+**Note: The bioconda samtools and bedtools libraries may prevent aptardi from working, please make sure these packages are not installed in any environment**
 
 ## Installation (~10 min)
-1. Install conda/bioconda [here] if not already installed(https://bioconda.github.io/user/install.html)
+1. Install conda/bioconda [here](https://bioconda.github.io/user/install.html) if not already installed
 
 2. From the command line, add conda-forge channel if not already present
+
 	```conda config --add channels conda-forge'''
 	
 3. From the command line, create conda environment with aptardi, correct python version (3.7.7), and dependencies (listed in requirements.txt)
+
 	```conda create -n [your_environment_name] --channel conda-forge -c aptardi```
 	
 4. Activate conda environment
+
 	```conda activate [your_environment_name]```
 	
 5. Check that samtools and bedtools can be called from your environment, e.g. from within your environment type:
+
 	```samtools --version```
 	```bedtools --version```
 	
