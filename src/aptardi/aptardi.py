@@ -1810,7 +1810,7 @@ mid_us_cut = 1/4*1.5
 tgta_cut = 1/256*2*6
 canon_sigs = ['AATAAA', 'ATTAAA', 'AGTAAA']
 weak_sigs = ['AAGAAA', 'AAAAAG', 'AATACA', 'TATAAA', 'ACTAAA', 'GATAAA', 'AATATA', 'CATAAA', 'AATAGA']
-soft_ver = '1.3.12'
+soft_ver = '1.3.13'
 chr_sizes_name = 'chrom.sizes'
 bg_file = 'rna_seq_cov.bg'     
 
@@ -1826,21 +1826,18 @@ def main():
     global tmp_maxlen
     global window_size
     global out_dir
-    try:
-        args = parse_args() 
-        orientation = args.a
-        stg_gtf_wrap = args.r
-        stg_gtf = stg_gtf_wrap.readlines()
-        fasta_file = args.f
-        bam_file = args.b
-        debugging = args.d
-        machine_learning_mode = args.m
-        res_file = args.g
-        threshold = args.p
-        window_size = args.w
-        rand_seed = args.c
-    except:
-        sys.exit(1)
+    args = parse_args() 
+    orientation = args.a
+    stg_gtf_wrap = args.r
+    stg_gtf = stg_gtf_wrap.readlines()
+    fasta_file = args.f
+    bam_file = args.b
+    debugging = args.d
+    machine_learning_mode = args.m
+    res_file = args.g
+    threshold = args.p
+    window_size = args.w
+    rand_seed = args.c
     out_dir, temp_dir = args.o
     if not os.path.isdir(out_dir):
         os.mkdir(out_dir)
