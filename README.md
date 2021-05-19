@@ -13,48 +13,33 @@ As a result, some have utilized the information afforded by DNA sequence to iden
 To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data from the sample with the genome (DNA sequence) of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that incorporates transcripts identified by aptardi. Note that aptardi does not evaluate intron junctions but rather only evalutes 3' terminal exons of input transcripts annotates 3' ends accordingly.
 
 ## Requirements
-1. Linux machine
+1. Linux or MacOS machine
 
-2. [SAMtools (v.1.9)](http://www.htslib.org/download/)
+2. Conda (aptardi is installed using conda)
 
-3. [BEDtools (v.2.29.2)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
+3. [SAMtools (v.1.9)](http://www.htslib.org/download/)
 
-**Note: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please uninstall these Python3 packages if present**
+4. [BEDtools (v.2.29.2)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 
-4. Python3 (v.3.7.7) (**PYTHON VERSIONS 3.8x AND ABOVE DO NOT SUPPORT THE TENSORFLOW VERSION REQUIRED**)
+**Note: The bioconda samtools and bedtools Python3 libraries may prevent aptardi from working, please make sure these packages are not installed in any environment**
 
-5. The following Python3 libraries (listed version), in addition to the standard Python3 libraries:
+## Installation (~10 min)
+1. Install conda/bioconda [here] if not already installed(https://bioconda.github.io/user/install.html)
 
-	tensorflow==2.0.0 (**NEWER VERSIONS ARE CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)<br/> 
-	numpy==1.18.1\
-	pandas==1.0.3\
-	scikit_learn==0.22.2.post1 (**v.0.23.2 IS CURRENTLY NOT COMPATABLE WITH APTARDI - DO NOT USE**)
-
-These libraries are also available in the python_dependencies folder as requirements.txt
-
-**Note: The Python3 version called with #!/usr/bin/env python3 must have all the Python3 dependencies installed**
+2. From the command line, add conda-forge channel if not already present
+	```conda config --add channels conda-forge'''
 	
-6. aptardi (installation time <5 min)
-
-	Download the latest release of aptardi (aptardi.zip under Releases)\
-	Put in desired folder (we recommend /usr/local/bin)\
-	Add executable permission\
-	Access PATH file\
-	Add aptardi to PATH (if you put aptardi in /usr/local/bin/ the PATH will almost assuredly be in your profile)
-
-		sudo chmod +x aptardi
-		vi .bash_profile
-		export PATH="/usr/local/bin/:$PATH"
-		
-To check if aptardi was properly installed in your PATH, enter the following in your terminal
-
-	which aptardi
+3. From the command line, create conda environment with aptardi, correct python version (3.7.7), and dependencies (listed in requirements.txt)
+	```conda create -n [your_environment_name] --channel conda-forge -c aptardi```
 	
-This command should print to your screen aptardi's PATH
+4. Activate conda environment
+	```conda activate [your_environment_name]```
 	
-7. The machine learning model (model.hdf5) and scale (scale.pk) in ml_scale folder (unless building your own model)
-
-## Usage
+5. Check that samtools and bedtools can be called from your environment, e.g. from within your environment type:
+	```samtools --version```
+	```bedtools --version```
+	
+## Usage (in conda environment)
 
 	aptardi {OPTIONS}	
 
