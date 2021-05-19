@@ -60,7 +60,7 @@ def parse_args():
                  raise argparse.ArgumentTypeError('%s is not a positive integer' % value)
         return ivalue
     parser = argparse.ArgumentParser(description = 'aptardi')
-    parser.add_argument('--version', '-v', action = 'version', version = soft_ver)
+    parser.add_argument('--version', '-v', action = 'version', version = 'aptardi %s' %(soft_ver))
     parser.add_argument('--o', type = dir_path, help = 'output directory', required = True, metavar = 'path')
     parser.add_argument('--r', type = argparse.FileType('r'), help = 'transcriptome reconstruction', required = True, default = sys.stdin, metavar = 'gtf/gff file')
     parser.add_argument('--f', type = check_file, help = 'fasta where headers are chromosomes', required = True, metavar = 'fasta file')
@@ -1810,7 +1810,7 @@ mid_us_cut = 1/4*1.5
 tgta_cut = 1/256*2*6
 canon_sigs = ['AATAAA', 'ATTAAA', 'AGTAAA']
 weak_sigs = ['AAGAAA', 'AAAAAG', 'AATACA', 'TATAAA', 'ACTAAA', 'GATAAA', 'AATATA', 'CATAAA', 'AATAGA']
-soft_ver = '1.3.11'
+soft_ver = '1.3.12'
 chr_sizes_name = 'chrom.sizes'
 bg_file = 'rna_seq_cov.bg'     
 
