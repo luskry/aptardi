@@ -40,7 +40,8 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	
 5. Check that samtools and bedtools can be called from your environment, e.g. from within your environment type:
 
-	```samtools --version```\n
+	```samtools --version```
+	
 	```bedtools --version```
 	
 ## Usage (in conda environment)
