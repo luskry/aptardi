@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name='aptardi',
-      version='1.3.10',
+      version='1.3.11',
       description='Identify polyA sites',
       author='Ryan Lusk',
       author_email='ryan.lusk@cuanschutz.edu',
