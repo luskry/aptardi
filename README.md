@@ -61,8 +61,8 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	
 		Additional required arguments
 		
-		--n/-n <model file>		Location of model downloaded from ml_scale folder
-		--t/-t <scale file>		Location of scale downloaded from ml_scale folder 
+		--n/-n <model file>		Location of model (model.hdf5) downloaded from src/aptardi/ml_scale folder
+		--t/-t <scale file>		Location of scale (scale.pk) downloaded from src/aptardi/ml_scale folder 
 		
 	2. Mode 2: Building your own model (non-canonical usage)
 	
