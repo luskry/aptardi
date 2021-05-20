@@ -1810,7 +1810,7 @@ mid_us_cut = 1/4*1.5
 tgta_cut = 1/256*2*6
 canon_sigs = ['AATAAA', 'ATTAAA', 'AGTAAA']
 weak_sigs = ['AAGAAA', 'AAAAAG', 'AATACA', 'TATAAA', 'ACTAAA', 'GATAAA', 'AATATA', 'CATAAA', 'AATAGA']
-soft_ver = '1.3.13'
+soft_ver = '1.4'
 chr_sizes_name = 'chrom.sizes'
 bg_file = 'rna_seq_cov.bg'     
 
