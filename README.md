@@ -28,21 +28,21 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 2. From the command line, add conda-forge channel if not already present
 
-	```conda config --add channels conda-forge```
+		conda config --add channels conda-forge
 	
 3. From the command line, create conda environment with aptardi, correct python version (3.7.7), and dependencies (listed in requirements.txt)
 
-	```conda create -n [your_environment_name] --channel conda-forge -c aptardi```
+		conda create -n [your_environment_name] --channel conda-forge -c aptardi
 	
 4. Activate conda environment
 
-	```conda activate [your_environment_name]```
+		conda activate [your_environment_name]
 	
 5. Check that samtools and bedtools can be called from your environment, e.g. from within your environment type:
 
-	```samtools --version```
+		samtools --version
 	
-	```bedtools --version```
+		bedtools --version
 	
 ## Usage (in conda environment)
 
