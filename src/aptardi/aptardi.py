@@ -804,7 +804,7 @@ def define_data_instances(tmp_dir, instances_file, chrom_sizes_dict):
                 write_line = [fields[0], str(base_start), str(base_end), name, comb_tpm, strand, str(i), str(i + window_size)]
                 output_write.writelines('\t'.join(write_line) + '\n')
     output_write.close()
-    if not debugging and not window_refined_utrs_file == 'window.bed':
+    if not debugging:
         try:
             os.remove(tmp_dir+window_refined_utrs_file)
         except OSError:
