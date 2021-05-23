@@ -32,7 +32,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 	
 3. From the command line, create conda environment with aptardi, correct python version (3.7.7), and dependencies (listed in requirements.txt)
 
-		conda create -n [your_environment_name] --channel conda-forge -c aptardi
+		conda create -n [your_environment_name] --channel conda-forge -c bioconda aptardi
 	
 4. Activate conda environment
 
