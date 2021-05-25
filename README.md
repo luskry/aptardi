@@ -21,7 +21,7 @@ To overcome these limitations, here we introduce aptardi, which combines both RN
 
 4. [BEDtools (v.2.29.2)](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 
-**Note: The bioconda samtools and bedtools libraries may prevent aptardi from working, please make sure these packages are not installed in any environment**
+**Note: The bioconda samtools and bedtools libraries may prevent aptardi from working, please make sure these packages are not installed in the same environment as aptardi**
 
 ## Installation (~10 min)
 1. Install conda/bioconda [here](https://bioconda.github.io/user/install.html) if not already installed
