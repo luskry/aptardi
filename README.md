@@ -10,7 +10,7 @@ High throughput RNA sequencing (RNA-Seq) is a powerful tool for characterizing a
 
 As a result, some have utilized the information afforded by DNA sequence to identify polyA sites. However, DNA sequence alone does not consider expression of specific samples, information that is crucial for studies concerned with the role of alternative polyadenylation on health and disease. 
 
-To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data from the sample with the genome (DNA sequence) of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that incorporates transcripts identified by aptardi. Note that aptardi does not evaluate intron junctions but rather only evalutes 3' terminal exons of input transcripts annotates 3' ends accordingly.
+To overcome these limitations, here we introduce aptardi, which combines both RNA-Seq data and DNA sequence. Namely, aptardi takes as input a transcriptome (gtf/gff format), possibly constructed from RNA-Seq data, and combines RNA-Seq data from the sample with the genome (DNA sequence) of the sample to identify 3' ends of transcripts using machine learning. The output of aptardi is a new gtf/gff file that incorporates transcripts identified by aptardi. Note that aptardi does not evaluate intron junctions but rather only evalutes 3' terminal exons of input transcripts and annotates 3' ends accordingly.
 
 ## Requirements
 1. Linux or MacOS machine
